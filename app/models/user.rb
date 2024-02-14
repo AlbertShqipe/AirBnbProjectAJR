@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :players
   has_many :bookings_as_owner, through: :players, source: :bookings
   has_many :bookings
+  has_many :players, through: :bookings
 
   validates :first_name, :last_name, presence: true
 end

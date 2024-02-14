@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_13_200608) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_14_182006) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,4 +61,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_200608) do
 
   add_foreign_key "bookings", "players"
   add_foreign_key "bookings", "users"
+  add_foreign_key "players", "users", column: "owner_id"
 end
