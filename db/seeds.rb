@@ -11,12 +11,17 @@
 require 'net/http'
 require 'json'
 
+
+
+puts "----------------------------------------------------------------"
 puts "Records being destroyed"
-
-puts "----------------------------------------------------------------"
 puts "----------------------------------------------------------------"
 
+
+
+puts "----------------------------------------------------------------"
 puts "Creating users..."
+puts "----------------------------------------------------------------"
 
 albert = User.create(
   first_name: 'Albert',
@@ -39,12 +44,13 @@ ricardo = User.create(
   password: 'azerty1234'
 )
 
-puts "Users created"
+puts "----------------------------------------------------------------"
+puts "#{User.count} Users created"
+puts "----------------------------------------------------------------"
 
 puts "----------------------------------------------------------------"
+puts "Creating players..."
 puts "----------------------------------------------------------------"
-
-puts "Creating new players"
 
 #The code below is used to later change the nationality result in a compatible string format
 # string = "[\"Brazil\", \"Argentina\"]"
@@ -52,6 +58,10 @@ puts "Creating new players"
 # Player.all.each do |player|
 #   player.nationality = JSON.parse(player.nationality).join(', ')
 # end
+
+puts "----------------------------------------------------------------"
+puts "Creating players of liverpool"
+puts "----------------------------------------------------------------"
 
 url_liverpool = 'https://transfermarkt-api.vercel.app/clubs/31/players'
 uri = URI(url_liverpool)
@@ -89,7 +99,9 @@ players.each do |player|
   end
 end
 
+puts "----------------------------------------------------------------"
 puts "Creating players of lisboa"
+puts "----------------------------------------------------------------"
 
 url_lisboa = 'https://transfermarkt-api.vercel.app/clubs/294/players'
 uri = URI(url_lisboa)
@@ -127,7 +139,9 @@ players.each do |player|
   end
 end
 
+puts "----------------------------------------------------------------"
 puts "Creating players of juventus"
+puts "----------------------------------------------------------------"
 
 url_juventus = 'https://transfermarkt-api.vercel.app/clubs/506/players'
 uri = URI(url_juventus)
@@ -165,4 +179,8 @@ players.each do |player|
   end
 end
 
-puts "Players created"
+puts "----------------------------------------------------------------"
+puts "#{Player.count} players creeated"
+puts "----------------------------------------------------------------"
+
+puts "Seed done"
