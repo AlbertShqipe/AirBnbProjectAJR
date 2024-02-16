@@ -1,2 +1,15 @@
-<h1>Players#show</h1>
-<p>Find me in app/views/players/show.html.erb</p>
+<h1><%= @player.name %></h1>
+
+<ul>
+  <li>Position : <%= @player.position %></li>
+  <li>Age : <%= @player.age %></li>
+  <li>Address : <%= @player.address %></li>
+  <li>Nationality : <%= @player.nationality %></li>
+  <li>Height : <%= @player.height %></li>
+  <li>Foot : <%= @player.foot %></li>
+  <li>Price per day : <%= @player.price_per_day %></li>
+</ul>
+
+<p>
+  <%= link_to "Back", players_path %>
+</p>
