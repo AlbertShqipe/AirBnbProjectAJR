@@ -1,9 +1,10 @@
 <h1>Players list</h1>
-<p>
+<ul>
   <% @players.each do |player| %>
-    <%= link_to player.name, player_path(player) %>
+    <li><%= link_to player.name, player_path(player) %></li>
   <% end %>
-</p>
+</ul>
+
 
 <p>
   <%= link_to "Add a new player", new_player_path %>
