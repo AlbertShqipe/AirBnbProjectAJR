@@ -9,13 +9,15 @@ class PlayersController < ApplicationController
   end
 
   def new
-    @player = Player.new()
+    @player = Player.new
   end
 
   def create
     @player = Player.new(player_params)
+    @user_id = current_user.id
+    @player.owner_id = @user_id
+    # raise
     if @player.save
-      raise
       redirect_to player_path(@player)
     else
       render :new, status: :unprocessable_entity
@@ -38,6 +40,6 @@ class PlayersController < ApplicationController
   end
 
   def player_params
-    params.require(:player).permit(:name, :position, :age, :address, :nationality, :height, :foot, :club, :market_value, :price_per_day, :photo)
+    params.require(:player).permit(:name, :position, :age, :address, :nationality, :height, :foot, :club, :market_value, :price_per_day, :photo, :owner_id)
   end
 end

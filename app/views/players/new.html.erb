@@ -1,4 +1,6 @@
 <h1>Players#new</h1>
 <p>Find me in app/views/players/new.html.erb</p>
 
+<p>Welcome <%= current_user.first_name %></p>
+
 <%= render "form", player: @player %>
