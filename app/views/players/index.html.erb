@@ -3,8 +3,13 @@
 <h1>Players list</h1>
 <ul>
   <% @players.each do |player| %>
-    <li><%= link_to player.name, player_path(player) %></li>
-    <li><%= image_tag(player.photo) %></li>
+  <div class="card-product">
+  <img src= <%= player.photo %> />
+  <div class="card-product-infos">
+    <h2><%= link_to player.name, player_path(player) %></h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
   <% end %>
 </ul>
 
