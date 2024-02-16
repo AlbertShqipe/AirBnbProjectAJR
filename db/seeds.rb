@@ -11,7 +11,8 @@
 require 'net/http'
 require 'json'
 
-
+Player.destroy_all
+User.destroy_all
 
 puts "----------------------------------------------------------------"
 puts "Records being destroyed"
@@ -72,29 +73,33 @@ players = data['players']
 players.each do |player|
   if player['marketValue'].present?
     Player.create(
-    name: player['name'],
-    position: player['position'],
-    age: player['age'],
-    nationality: JSON.parse(player['nationality'].to_s).join(', '),
-    height: player['height'],
-    foot: player['foot'],
-    club: player['signedFrom'],
-    market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
-    price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365,
-    owner_id: julien[:id]
+      id: player['id'],
+      name: player['name'],
+      position: player['position'],
+      age: player['age'],
+      nationality: JSON.parse(player['nationality'].to_s).join(', '),
+      height: player['height'],
+      foot: player['foot'],
+      club: 'Liverpool',
+      market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
+      price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365,
+      owner_id: julien[:id],
+      photo: ''
     )
   else
     Player.create(
-    name: player['name'],
-    position: player['position'],
-    age: player['age'],
-    nationality: JSON.parse(player['nationality'].to_s).join(', '),
-    height: player['height'],
-    foot: player['foot'],
-    club: player['signedFrom'],
-    market_value: 0,
-    price_per_day: 0,
-    owner_id: julien[:id]
+      id: player['id'],
+      name: player['name'],
+      position: player['position'],
+      age: player['age'],
+      nationality: JSON.parse(player['nationality'].to_s).join(', '),
+      height: player['height'],
+      foot: player['foot'],
+      club: 'Liverpool',
+      market_value: 0,
+      price_per_day: 0,
+      owner_id: julien[:id],
+      photo: ''
     )
   end
 end
@@ -112,29 +117,33 @@ players = data['players']
 players.each do |player|
   if player['marketValue'].present?
     Player.create(
-    name: player['name'],
-    position: player['position'],
-    age: player['age'],
-    nationality: JSON.parse(player['nationality'].to_s).join(', '),
-    height: player['height'],
-    foot: player['foot'],
-    club: player['signedFrom'],
-    market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
-    price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365,
-    owner_id: ricardo[:id]
+      id: player['id'],
+      name: player['name'],
+      position: player['position'],
+      age: player['age'],
+      nationality: JSON.parse(player['nationality'].to_s).join(', '),
+      height: player['height'],
+      foot: player['foot'],
+      club: 'Benfica Lisbonne',
+      market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
+      price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365,
+      owner_id: ricardo[:id],
+      photo: ''
     )
   else
     Player.create(
-    name: player['name'],
-    position: player['position'],
-    age: player['age'],
-    nationality: JSON.parse(player['nationality'].to_s).join(', '),
-    height: player['height'],
-    foot: player['foot'],
-    club: player['signedFrom'],
-    market_value: 0,
-    price_per_day: 0,
-    owner_id: ricardo[:id]
+      id: player['id'],
+      name: player['name'],
+      position: player['position'],
+      age: player['age'],
+      nationality: JSON.parse(player['nationality'].to_s).join(', '),
+      height: player['height'],
+      foot: player['foot'],
+      club: 'Benfica Lisbonne',
+      market_value: 0,
+      price_per_day: 0,
+      owner_id: ricardo[:id],
+      photo: ''
     )
   end
 end
@@ -152,32 +161,55 @@ players = data['players']
 players.each do |player|
   if player['marketValue'].present?
     Player.create(
-    name: player['name'],
-    position: player['position'],
-    age: player['age'],
-    nationality: JSON.parse(player['nationality'].to_s).join(', '),
-    height: player['height'],
-    foot: player['foot'],
-    club: player['signedFrom'],
-    market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
-    price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365,
-    owner_id: albert[:id]
+      id: player['id'],
+      name: player['name'],
+      position: player['position'],
+      age: player['age'],
+      nationality: JSON.parse(player['nationality'].to_s).join(', '),
+      height: player['height'],
+      foot: player['foot'],
+      club: 'Juventus',
+      market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
+      price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365,
+      owner_id: albert[:id],
+      photo: ''
     )
   else
     Player.create(
-    name: player['name'],
-    position: player['position'],
-    age: player['age'],
-    nationality: JSON.parse(player['nationality'].to_s).join(', '),
-    height: player['height'],
-    foot: player['foot'],
-    club: player['signedFrom'],
-    market_value: 0,
-    price_per_day: 0,
-    owner_id: albert[:id]
+      id: player['id'],
+      name: player['name'],
+      position: player['position'],
+      age: player['age'],
+      nationality: JSON.parse(player['nationality'].to_s).join(', '),
+      height: player['height'],
+      foot: player['foot'],
+      club: 'Juventus',
+      market_value: 0,
+      price_per_day: 0,
+      owner_id: albert[:id],
+      photo: ''
     )
   end
 end
+
+
+
+
+
+  # alisson = Player.where(id: 105470)
+  # alisson.update(photo: players_photo)
+players_created = Player.all
+players_created.each do |player|
+  puts "Adding photo to #{player.name}"
+  url_photos = "https://transfermarkt-api.vercel.app/players/#{player.id}/profile"
+  uri_photos = URI(url_photos)
+  photos = Net::HTTP.get(uri_photos)
+  data_photos = JSON.parse(photos)
+  players_photo = data_photos['imageURL']
+  player.update(photo: players_photo)
+  puts "Photo added to #{player.name}"
+end
+
 
 puts "----------------------------------------------------------------"
 puts "#{Player.count} players creeated"
