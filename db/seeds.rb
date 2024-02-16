@@ -18,8 +18,6 @@ puts "----------------------------------------------------------------"
 puts "Records being destroyed"
 puts "----------------------------------------------------------------"
 
-
-
 puts "----------------------------------------------------------------"
 puts "Creating users..."
 puts "----------------------------------------------------------------"
@@ -192,12 +190,6 @@ players.each do |player|
   end
 end
 
-
-
-
-
-  # alisson = Player.where(id: 105470)
-  # alisson.update(photo: players_photo)
 players_created = Player.all
 players_created.each do |player|
   puts "Adding photo to #{player.name}"
@@ -209,7 +201,6 @@ players_created.each do |player|
   player.update(photo: players_photo)
   puts "Photo added to #{player.name}"
 end
-
 
 puts "----------------------------------------------------------------"
 puts "#{Player.count} players creeated"
