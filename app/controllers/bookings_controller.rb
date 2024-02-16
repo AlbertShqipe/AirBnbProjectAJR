@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     @booking.player = @player
     @user_id = current_user.id
     @booking.user_id = @user_id
+    @booking.total_price = @booking.calculate_total_price(@player.price_per_day)
     if @booking.save
       redirect_to player_path(@player)
     else
@@ -24,6 +25,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :user_id, :player_id)
+    params.require(:booking).permit(:start_date, :end_date, :user_id, :player_id, :total_price)
   end
 end
