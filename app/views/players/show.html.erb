@@ -1,6 +1,7 @@
 <h1><%= @player.name %></h1>
 
 <ul>
+  <%= cl_image_tag @player.photo.key, height: 300, width: 400, crop: :fill %>
   <li>Position : <%= @player.position %></li>
   <li>Age : <%= @player.age %></li>
   <li>Address : <%= @player.address %></li>
@@ -8,6 +9,7 @@
   <li>Height : <%= @player.height %></li>
   <li>Foot : <%= @player.foot %></li>
   <li>Price per day : <%= @player.price_per_day %></li>
+  <li>Owner: <%= @player.owner.first_name %> <%= @player.owner.last_name %></li>
 </ul>
 
 <p>
