@@ -1,15 +1,19 @@
-<%# <h1>Welcome <%= current_user.first_name %></h1> %>
+<h1>Welcome <%= current_user.first_name %>
 
 <h1>Players list</h1>
-<ul>
+<ul style="list-style-type:none";>
   <% @players.each do |player| %>
   <div class="card-product">
-  <img src= <%= player.photo %> />
-  <div class="card-product-infos">
+    <div class="card-product-infos">
     <h2><%= link_to player.name, player_path(player) %></h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
+    <% if player.img.present? %>
+      <li><%= image_tag(player.img) %></li>
+    <% else %>
+      <li><%= cl_image_tag player.photo.key, height: 140, width: 181, crop: :fill %></li>
+    <% end %>
+    </div>
   </div>
-</div>
   <% end %>
 </ul>
 

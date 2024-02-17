@@ -198,7 +198,7 @@ players_created.each do |player|
   photos = Net::HTTP.get(uri_photos)
   data_photos = JSON.parse(photos)
   players_photo = data_photos['imageURL']
-  player.update(photo: players_photo)
+  player.update(img: players_photo)
   puts "Photo added to #{player.name}"
 end
 
