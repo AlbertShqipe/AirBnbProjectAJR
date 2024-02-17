@@ -11,6 +11,7 @@
   </head>
 
   <body>
+
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container-fluid">
       <%= link_to players_path, class: "navbar-brand" do %>
@@ -42,13 +43,14 @@
         </div>
       </div>
     </div>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class="content">
-      <%= yield %>
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <div class="content">
+        <%= yield %>
+      </div>
     </div>
-    <div class="footer">
+    <div class="footer mt-3">
       <div class="footer-up">
         <%= image_tag('BL.png') %>
         <div class="text">
