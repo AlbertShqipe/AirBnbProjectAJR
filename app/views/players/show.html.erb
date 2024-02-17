@@ -1,7 +1,11 @@
 <div class="container mt-4">
   <div class="big-card">
     <div class="player-photo">
-      <%= image_tag(@player.photo) %>
+      <% if @player.img.present? %>
+        <%= image_tag(@player.img) %>
+      <% else %>
+        <%= cl_image_tag @player.photo.key %>
+      <% end %>
     </div>
     <div class="infos">
       <div class="player-name">
