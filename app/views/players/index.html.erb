@@ -1,17 +1,21 @@
-<%# <h1>Welcome <%= current_user.first_name %></h1> %>
-
-<h1>Players list</h1>
-<ul>
-  <% @players.each do |player| %>
-  <div class="card-product">
-  <img src= <%= player.photo %> />
-  <div class="card-product-infos">
-    <h2><%= link_to player.name, player_path(player) %></h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <h1>Liste des joueurs</h1>
+    <% @players.each do |player| %>
+      <div class="col-12 col-lg-6">
+        <div class="card-product mt-3">
+          <img src= <%= player.photo %> />
+            <div class="card-product-infos">
+              <h2><%= link_to player.name, player_path(player) %></h2>
+              <h3><%= player.position %></h3>
+              <p>Ce Joueur revient à : <strong><%= player.price_per_day/1000 %> € / jour</strong></p>
+            </div>
+        </div>
+     </div>
+    <% end %>
   </div>
 </div>
-  <% end %>
-</ul>
+
 
 
 <p>
