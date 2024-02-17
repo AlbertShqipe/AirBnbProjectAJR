@@ -5,7 +5,7 @@
   border-radius: 10px;
   border: 1px solid rgba(211, 211, 211, 0.295);
   padding: 10px;
-  box-shadow: 1px 1px rgba(205, 205, 205, 0.308);
+  box-shadow: 1px 1px 5px grey;
 
   .player-photo img {
     border-radius: 10px;
@@ -25,15 +25,73 @@
 
   h1 {
     margin: 0;
+    font-weight: bolder;
+  }
+
+  h2 {
+    margin: 0;
+    font-style: italic;
   }
 }
 
 .col-8 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+}
 
-  .col-md-4 {
-    background-color: aquamarine;
+.booking {
+  background-color: rgba(255, 255, 255, 0.671);
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.457);
+  h1 {
+    margin: 0;
+    text-align: center;
+  }
+  .small {
+  font-size: 20px;
+  font-style: italic;
+  }
+}
+
+.infos-card {
+  // background-color: rgb(255, 255, 255);
+  margin: auto;
+  border-top: 1px solid rgba(167, 167, 167, 0.543);
+  padding: 24px 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  // border-radius: 10px;
+  // box-shadow: 1px 1px 5px grey;
+
+}
+
+.icon {
+  padding-right: 25px;
+  h1 {
+    margin: 0;
+  }
+  i {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.text {
+    h6 {
+    margin: 0;
+  }
+    h5 {
+    margin-bottom: 10px;
+    font-weight: bolder;
+  }
+    h6 {
+    margin: 0;
+    padding: 0;
+    font-style: italic;
   }
 }
