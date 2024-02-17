@@ -14,7 +14,7 @@
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container-fluid">
       <%= link_to players_path, class: "navbar-brand" do %>
-        <%= image_tag('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png') %>
+        <%= image_tag('Icone_navbar.jpeg') %>
       <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -45,6 +45,26 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
+    <div class="footer">
+      <div class="footer-up">
+        <%= image_tag('BL.png') %>
+        <div class="text">
+          <p>Qui sommes-nous ?</p>
+          <p>Contactez-nous.</p>
+        </div>
+        <%= image_tag('Liv.png') %>
+        <div class="text-last">
+          <p>Joueurs livrés en un jour!</p>
+          <p>Faites votre mercato!</p>
+        </div>
+        <%= image_tag('Juv.png') %>
+      </div>
+      <div class="last">
+        <p>Construisez votre équipe de rêve en recrutant les meilleurs joueurs dans les meilleurs clubs.</p>
+      </div>
+    </div>
   </body>
 </html>

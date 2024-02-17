@@ -1,18 +1,54 @@
-<h1><%= @player.name %></h1>
+<div class="container">
+  <div class="big-card">
+    <div class="player-photo">
+      <%= image_tag(@player.photo) %>
+    </div>
+    <div class="infos">
+      <div class="player-name">
+        <h1><%= @player.name %></h1>
+        </div>
+        <div class="player-price">
+          <h1><%= "#{@player.price_per_day/1000} € / jour" %></h1>
+        </div>
+    </div>
+    <div class="club-photo">
+      <% if @player.club == 'Liverpool' %>
+        <%= image_tag('Liv.png') %>
+      <% elsif @player.club == 'Benfica Lisbonne' %>
+        <%= image_tag('BL.png') %>
+      <% else %>
+        <%= image_tag('Juv.png') %>
+      <% end %>
+    </div>
+  </div>
+  <div class="container">
+  <div class="row">
+      <div class="col-8">
+        <div class="col-md-4">
+        Position : <%= @player.position %>
+        </div>
+        <div class="col-md-4">
+          Age : <%= @player.age %>
+        </div>
+      </div>
+  <div class="col-4">
+  test
+  </div>
+  </div>
 
-<ul>
-  <li>Position : <%= @player.position %></li>
-  <li>Age : <%= @player.age %></li>
-  <li>Address : <%= @player.address %></li>
-  <li>Nationality : <%= @player.nationality %></li>
-  <li>Height : <%= @player.height %></li>
-  <li>Foot : <%= @player.foot %></li>
-  <li>Price per day : <%= @player.price_per_day %></li>
-</ul>
+  </div>
+  <ul>
 
-<p>
-  <%= link_to "Booking this player", new_player_booking_path(@player)  %>
-</p>
-<p>
-  <%= link_to "Back", players_path %>
-</p>
+    <li>Address : <%= @player.address %></li>
+    <li>Nationality : <%= @player.nationality %></li>
+    <li>Height : <%= @player.height %></li>
+    <li>Foot : <%= @player.foot %></li>
+  </ul>
+
+  <p>
+    <%= link_to "Booking this player", new_player_booking_path(@player)  %>
+  </p>
+  <p>
+    <%= link_to "Back", players_path %>
+  </p>
+</div>

@@ -1,0 +1,39 @@
+.big-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.614);
+  border-radius: 10px;
+  border: 1px solid rgba(211, 211, 211, 0.295);
+  padding: 10px;
+  box-shadow: 1px 1px rgba(205, 205, 205, 0.308);
+
+  .player-photo img {
+    border-radius: 10px;
+  }
+
+  .club-photo img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.col-8 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .col-md-4 {
+    background-color: aquamarine;
+  }
+}
