@@ -11,19 +11,17 @@
               <%= cl_image_tag player.photo.key %>
             <% end %>
           </div>
-            <div class="card-product-infos">
+          <div class="card-product-infos ml-3">
+            <div class="player-infos">
               <h2><%= link_to player.name, player_path(player) %></h2>
               <h3><%= player.position %></h3>
-              <p>Ce Joueur revient à : <strong><%= player.price_per_day/1000 %> € / jour</strong></p>
             </div>
+            <div class="button-price ml-3">
+              <button class="btn btn-primary"><%= player.price_per_day/1000 %> € / jour</button>
+            </div>
+          </div>
         </div>
      </div>
     <% end %>
   </div>
 </div>
-
-
-
-<p>
-  <%= link_to "Add a new player", new_player_path %>
-</p>
