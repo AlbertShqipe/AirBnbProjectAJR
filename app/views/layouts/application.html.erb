@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/confetti.css">
   </head>
 
   <body>
@@ -33,6 +35,7 @@
                 <%= link_to "Dashboard", players_path, class: "dropdown-item" %>
                 <%= link_to "Add a new player", new_player_path, class: "dropdown-item"%>
                 <% if user_signed_in? %>
+                  <%= link_to "Ajouter un nouveau joueur", new_player_path, class: "dropdown-item" %>
                   <%= link_to "Log Out", destroy_user_session_path, data:{turbo_method: :delete}, class: "dropdown-item" %>
                 <% else %>
                   <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>

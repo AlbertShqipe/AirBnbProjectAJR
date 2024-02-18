@@ -1,0 +1,48 @@
+.card-product {
+  overflow: hidden;
+  height: 181px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .player-photo {
+    height: 100%;
+    width: 139px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 0.7;
+    // margin-bottom: 0;
+    // margin-top: 8px;
+  }
+
+  .card-product-infos {
+    width: 100%;
+    padding: 16px;
+    align-items: top;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button-price {
+    width: 100%;
+    align-items: end;
+  }
+}
