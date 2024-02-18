@@ -5,6 +5,7 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   .player-photo {
     height: 100%;
@@ -33,8 +34,15 @@
   }
 
   .card-product-infos {
+    width: 100%;
     padding: 16px;
+    align-items: top;
     display: flex;
     justify-content: space-between;
+  }
+
+  .button-price {
+    width: 100%;
+    align-items: end;
   }
 }

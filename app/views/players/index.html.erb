@@ -16,10 +16,10 @@
               <h2><%= link_to player.name, player_path(player) %></h2>
               <h3><%= player.position %></h3>
             </div>
+          </div>
             <div class="button-price ml-3">
               <button class="btn btn-primary"><%= player.price_per_day/1000 %> € / jour</button>
             </div>
-          </div>
         </div>
      </div>
     <% end %>
