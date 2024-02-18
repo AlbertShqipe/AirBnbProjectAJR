@@ -1,5 +1,13 @@
 <%= simple_form_for [@player, @booking] do |f| %>
-<%= f.input :start_date, as: :string , input_html: {data: { controller: "datepicker" } }%>
-<%= f.input :end_date, as: :string, input_html: {data: { controller: "datepicker" } } %>
-<%= f.submit %>
+  <%= f.input :start_date,
+              as: :string,
+              input_html: {data: {
+                controller: "datepicker",
+                total_price_booking_target: "startDate" } } %>
+  <%= f.input :end_date,
+              as: :string,
+              input_html: {data: {
+                controller: "datepicker",
+                total_price_booking_target: "endDate" } } %>
+  <%= f.submit %>
 <% end %>

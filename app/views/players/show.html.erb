@@ -10,10 +10,7 @@
     <div class="infos">
       <div class="player-name">
         <h1><%= @player.name %></h1>
-        </div>
-        <div class="player-price">
-          <h2><%= "#{@player.price_per_day/1000} € / jour" %></h2>
-        </div>
+      </div>
     </div>
     <div class="club-photo">
       <% if @player.club == 'Liverpool' %>
@@ -94,17 +91,19 @@
           </div>
         </div>
         <div class="col-4">
-          <div class="booking">
-            <h1><%= @player.price_per_day / 1000 %> € <span class="small">par jour.</span></h1>
+          <div class="booking" data-controller="total-price-booking">
+            <h1 data-total-price-booking-target="pricePerDay"><%= @player.price_per_day / 1000 %></h1> <h1>€ <span class="small">par jour.</span></h1>
+            <%= render "bookings/form", booking: @booking %>
+              <button data-action="click->total-price-booking#priceCount">Test</button>
+            <div class="result" data-total-price-booking-target="price">
+              <p></p>
+            </div>
           </div>
           <div class="not-visible"></div>
         </div>
       </div>
     </div>
 
-  <p>
-    <%= link_to "Booking this player", new_player_booking_path(@player)  %>
-  </p>
   <p>
     <%= link_to "Back", players_path %>
   </p>

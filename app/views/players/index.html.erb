@@ -1,23 +1,31 @@
-<h1>Welcome <%= current_user.first_name %>
+<h1>Welcome to the Players List ⚽️</h1>
 
-<h1>Players list</h1>
-<ul style="list-style-type:none";>
+<p>Click on the player that you'd like to rent</p>
+
+
+<section class="tiles">
   <% @players.each do |player| %>
-  <div class="card-product">
-    <div class="card-product-infos">
-    <h2><%= link_to player.name, player_path(player) %></h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+  <article class="style1">
     <% if player.img.present? %>
-      <li><%= image_tag(player.img) %></li>
+      <span class="image">
+        <%= image_tag(player.img) %>
+      </span>
     <% else %>
-      <li><%= cl_image_tag player.photo.key, height: 140, width: 181, crop: :fill %></li>
+      <span class="image">
+        <%= cl_image_tag player.photo.key%>
+      </span>
     <% end %>
-    </div>
-  </div>
+		<a href="/players/<%= player.id %>">
+      <h3><%= player.name %></h3>
+      <p><%= player.club %></p>
+      <div class="content">
+        <p><%= player.price_per_day / 1000 %>€</p>
+      </div>
+		</a>
+	</article>
   <% end %>
-</ul>
+</section>
 
-
-<p>
+<button class='mt-5'>
   <%= link_to "Add a new player", new_player_path %>
-</p>
+</button>
