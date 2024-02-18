@@ -1,23 +1,27 @@
-<h1>Welcome <%= current_user.first_name %>
-
-<h1>Players list</h1>
-<ul style="list-style-type:none";>
-  <% @players.each do |player| %>
-  <div class="card-product">
-    <div class="card-product-infos">
-    <h2><%= link_to player.name, player_path(player) %></h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-    <% if player.img.present? %>
-      <li><%= image_tag(player.img) %></li>
-    <% else %>
-      <li><%= cl_image_tag player.photo.key, height: 140, width: 181, crop: :fill %></li>
+<div class="container">
+  <div class="row justify-content-center">
+    <h1>Liste des joueurs</h1>
+    <% @players.each do |player| %>
+      <div class="col-12 col-lg-6">
+        <div class="card-product mt-3">
+          <div class="player-photo">
+            <% if player.img.present? %>
+              <%= image_tag(player.img) %>
+            <% else %>
+              <%= cl_image_tag player.photo.key %>
+            <% end %>
+          </div>
+          <div class="card-product-infos ml-3">
+            <div class="player-infos">
+              <h2><%= link_to player.name, player_path(player) %></h2>
+              <h3><%= player.position %></h3>
+            </div>
+          </div>
+            <div class="button-price ml-3">
+              <button class="btn btn-primary"><%= player.price_per_day/1000 %> € / jour</button>
+            </div>
+        </div>
+     </div>
     <% end %>
-    </div>
   </div>
-  <% end %>
-</ul>
-
-
-<p>
-  <%= link_to "Add a new player", new_player_path %>
-</p>
+</div>
