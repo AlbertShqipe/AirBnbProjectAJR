@@ -1,2 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome <%= current_user.first_name %>!</h1>
+<h2>The players market where you can rent football players</h2>
+
+<p>If you are looking to create the perfect football team, you are in the right place!!</p>
+<p>Here you will be able to create your football players profile and rent them or you can rent someones players to be
+  part of your team.</p>
+<p>Please click the button below to see the available players or to be able to add yours for rent.</p>
+<h2>Best of luck!</h2>
+<button class="mb-5">
+  <%= link_to "Players", players_path %>
+</button>
