@@ -80,7 +80,7 @@ players.each do |player|
       foot: player['foot'],
       club: 'Liverpool',
       market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
-      price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365,
+      price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365000,
       owner_id: julien[:id],
       photo: ''
     )
@@ -124,7 +124,7 @@ players.each do |player|
       foot: player['foot'],
       club: 'Benfica Lisbonne',
       market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
-      price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365,
+      price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365000,
       owner_id: ricardo[:id],
       photo: ''
     )
@@ -168,7 +168,7 @@ players.each do |player|
       foot: player['foot'],
       club: 'Juventus',
       market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
-      price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365,
+      price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365000,
       owner_id: albert[:id],
       photo: ''
     )

@@ -92,7 +92,7 @@
         </div>
         <div class="col-4">
           <div class="booking" data-controller="total-price-booking">
-            <h1 data-total-price-booking-target="pricePerDay"><%= @player.price_per_day / 1000 %></h1> <h1>€ <span class="small">par jour.</span></h1>
+            <h1 data-total-price-booking-target="pricePerDay"><%= @player.price_per_day %></h1> <h1>€ <span class="small">par jour.</span></h1>
             <%= render "bookings/form", booking: @booking %>
               <button data-action="click->total-price-booking#priceCount">Test</button>
             <div class="result" data-total-price-booking-target="price">
