@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :players do
     resources :bookings, only: %i[new create]
   end
+
+  resources :dashboards, only: %i[index]
   # Defines the root path route ("/")
   # root "posts#index"
 end
