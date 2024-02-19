@@ -1,4 +1,11 @@
-<h1 class="mt-5">Welcome <%= current_user.first_name %>!</h1>
+<h1 class="mt-5">Welcome
+<% if user_signed_in? %>
+<%= current_user.first_name %>
+<% else %>
+<%= "" %>
+<% end %>
+  !
+</h1>
 <h2>The players market where you can rent football players</h2>
 
 <p>If you are looking to create the perfect football team, you are in the right place!!</p>
