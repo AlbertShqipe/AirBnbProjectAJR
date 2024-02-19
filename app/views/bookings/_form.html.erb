@@ -2,9 +2,13 @@
   <%= f.input :start_date,
               label: "Date de début",
               as: :string,
-              input_html: {data: {
-                controller: "datepicker",
-                total_price_booking_target: "startDate" } } %>
+              input_html: {
+                data: {
+                  controller: "datepicker",
+                  total_price_booking_target: "startDate"
+                }
+              }
+  %>
   <%= f.input :end_date,
               label: "Date de fin",
               as: :string,
