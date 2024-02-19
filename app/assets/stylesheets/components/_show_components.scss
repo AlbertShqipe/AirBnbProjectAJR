@@ -47,7 +47,7 @@
   padding: 30px;
   box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.457);
   h1 {
-    margin: 0;
+    margin-bottom: 30px;
     text-align: center;
   }
   .small {
@@ -89,4 +89,23 @@
     padding: 0;
     font-style: italic;
   }
+}
+
+.result {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  color: rgba(107, 0, 0, 0.863);
+
+  p{
+    margin-bottom: 0;
+  }
+}
+
+.booking-form {
+  margin-bottom: 0;
+  text-align: center;
+  margin-top: 40px;
 }
