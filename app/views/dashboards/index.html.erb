@@ -1,4 +1,31 @@
 <h1>Dashboard</h1>
+  <section class="tiles">
+    <% @players.each do |player| %>
+    <article class="style1">
+      <% if player.img.present? %>
+        <span class="image">
+          <%= image_tag(player.img) %>
+        </span>
+      <% else %>
+        <span class="image">
+          <%= cl_image_tag player.photo.key%>
+        </span>
+      <% end %>
+      <a href="/players/<%= player.id %>">
+        <h3><%= player.name %></h3>
+        <p><%= player.club %></p>
+        <div class="content">
+          <p><%= player.price_per_day%> €</p>
+        </div>
+      </a>
+    </article>
+    <% end %>
+  </section>
+</div>
+
+
+
+
 <p>Click on the buttons inside the tabbed menu:</p>
 
 <div class="tab d-flex justify-content-center">

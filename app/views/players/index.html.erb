@@ -26,6 +26,12 @@
   <% end %>
 </section>
 
-<button class='mt-5'>
+<% if user_signed_in? %>
+  <button class='mt-5'>
   <%= link_to "Add a new player", new_player_path %>
 </button>
+<% else %>
+  <button class='mt-5'>
+  <%= link_to "Sign in", new_user_session_path %>
+</button>
+<% end %>
