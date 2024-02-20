@@ -95,7 +95,14 @@
             <h1><span data-total-price-booking-target="pricePerDay"><%= @player.price_per_day %></span> €
               <span class="small">par jour.</span>
             </h1>
-            <%= render "bookings/form", booking: @booking %>
+              <% if user_signed_in? %>
+                <%= render "bookings/form", booking: @booking %>
+              <% else %>
+                <button class='mt-5'>
+                <%= link_to "Sign in", new_user_session_path %>
+              </button>
+              <% end %>
+
           </div>
           <div class="not-visible"></div>
         </div>
