@@ -1,0 +1,39 @@
+<h1>Dashboard</h1>
+<p>Click on the buttons inside the tabbed menu:</p>
+
+<div class="tab d-flex justify-content-center">
+  <button class="tablinks" onclick="openCity(event, 'Liverpool')">Liverpool</button>
+  <button class="tablinks" onclick="openCity(event, 'Juventus')">Juventus</button>
+  <button class="tablinks" onclick="openCity(event, 'Benfica Lisboa')">Benfica Lisboa</button>
+</div>
+
+<div id="Liverpool" class="tabcontent">
+  <h3>Liverpool</h3>
+  <p>Liverpool Football Club is a professional football club based in Liverpool, England. The club competes in the Premier League, the top tier of English football. Founded in 1892, the club joined the Football League the following year and has played its home games at Anfield since its formation.
+Domestically, the club has won 19 league titles, eight FA Cups, a record nine League Cups and 16 FA Community Shields. In international competitions, the club has won six European Cups, three UEFA Cups, four UEFA Super Cups—all English records—and one FIFA Club World Cup. The club established itself as a major force in domestic and European football in the 1970s and 1980s, when Bill Shankly, Bob Paisley, Joe Fagan and Kenny Dalglish, led the club to a combined 11 League titles and four European Cups. Liverpool won two further European Cups in 2005 and 2019 under the management of Rafael Benítez and Jürgen Klopp, respectively; the latter led Liverpool to a 19th league title in 2020, the club's first during the Premier League era.</p>
+</div>
+
+<div id="Juventus" class="tabcontent">
+  <h3>Juventus</h3>
+  <p>Juventus Football Club (from Latin: iuventūs, 'youth'; Italian pronunciation: [juˈvɛntus]), colloquially known as Juve (pronounced [ˈjuːve]),[5] is an Italian professional football club based in Turin, Piedmont, that competes in the Serie A, the top tier of the Italian football league system. Founded in 1897 by a group of Torinese students, the club has worn a black and white striped home kit since 1903 and has played home matches in different grounds around its city, the latest being the 41,507-capacity Juventus Stadium. Nicknamed la Vecchia Signora ("the Old Lady"), the club has won 36 official league title, 14 Coppa Italia titles and nine Supercoppa Italiana title, being the records holder for all these competitions; two Intercontinental Cup, two European Cup / UEFA Champions League, one European Cup Winners' Cup, a joint national record of three UEFA Cup, two UEFA Super Cup and a joint national records of one UEFA Intertoto Cup.[6][7] Consequently, the side leads the historical Federazione Italiana Giuoco Calcio (FIGC) classification,[c] whilst on the international stage the club occupies the sixth position in Europe and the twelfth in the world for most confederation title won with eleven trophies,[9] as well as the fourth in the all-time Union of European Football Associations (UEFA) competitions ranking,[d] having obtained the highest coefficient score during seven seasons since its introduction in 1979, the most for an Italian team in both cases and joint second overall in the last cited.</p>
+</div>
+
+<div id="Benfica Lisboa" class="tabcontent">
+  <h3>Benfica Lisboa</h3>
+  <p>Founded on 28 February 1904 as Sport Lisboa, Benfica is one of the "Big Three" clubs in Portugal that have never been relegated from Primeira Liga, along with rivals Sporting CP and FC Porto. Benfica are nicknamed As Águias (The Eagles), for the symbol atop the club's crest, and Os Encarnados (The Reds), for the shirt colour. Since 2003, their home ground has been the Estádio da Luz, which replaced the larger, original one, built in 1954. Benfica is the most supported Portuguese club and the European club with the highest percentage of supporters in its own country, having an estimated 14 million supporters worldwide and over 250,000 members,[2][3][4] making them the largest sports club by membership in Portugal and second largest in the world. The club's anthem, "Ser Benfiquista", refers to Benfica supporters, who are called benfiquistas. "E pluribus unum" ("Out of many, one") is the club's motto; Águia Vitória, the mascot..</p>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+}
+</script>
