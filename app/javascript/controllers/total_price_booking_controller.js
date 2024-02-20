@@ -4,26 +4,22 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
 
-  static targets = ["startDate", "endDate", "price", "pricePerDay"];
+  static targets = ["startDate", "endDate", "price", "pricePerDay", "button"];
 
   connect() {
-    console.log('hello')
-    console.log()
-    console.log()
   }
 
-  priceCount() {
-    console.log('lol')
+  priceCount(event) {
+    event.preventDefault
     let date1 = this.startDateTarget
     let date2 = this.endDateTarget
     let startDate = new Date(date1.value);
     let endDate = new Date(date2.value);
     let diffTime = Math.abs(endDate - startDate);
     let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    console.log(diffDays + " days");
     let price = this.priceTarget
-    console.log(this.pricePerDayTarget.innerText)
-    price.innerText = diffDays * this.pricePerDayTarget.innerText
+    price.innerHTML = `Total pour ${diffDays} jours : <br> <br> ${(diffDays * this.pricePerDayTarget.innerText).toLocaleString('fr-FR')} €`
+    this.buttonTarget.classList.remove("disabled")
   }
 
 }
