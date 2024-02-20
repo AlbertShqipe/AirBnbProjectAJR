@@ -1,5 +1,12 @@
 <h1>Dashboard</h1>
-  <section class="tiles">
+
+<div class="tab d-flex justify-content-center">
+  <button class="tablinks" onclick="openCity(event, 'players')">Mes joueurs</button>
+  <button class="tablinks" onclick="openCity(event, 'bookings')">Mes bookings</button>
+</div>
+
+<div id="players" class="tabcontent">
+  <section class="tiles my-1">
     <% @players.each do |player| %>
     <article class="style1">
       <% if player.img.present? %>
@@ -23,8 +30,32 @@
   </section>
 </div>
 
-
-
+<div id="bookings" class="tabcontent">
+  <section class="tiles my-1">
+    <% @bookings.each do |booking| %>
+      <% player = Player.find_by(id: booking.player_id) %>
+        <article class="style1">
+          <% if player.img.present? %>
+            <span class="image">
+              <%= image_tag(player.img) %>
+            </span>
+          <% else %>
+            <span class="image">
+              <%= cl_image_tag player.photo.key%>
+            </span>
+          <% end %>
+          <a href="/players/<%= player.id %>">
+            <h3><%= player.name %></h3>
+            <span><%= booking.start_date %></span>
+            <span><%= booking.end_date %></span>
+            <div class="content">
+              <p><%= booking.total_price%> €</p>
+            </div>
+          </a>
+        </article>
+    <% end %>
+  </section>
+</div>
 
 <p>Click on the buttons inside the tabbed menu:</p>
 
