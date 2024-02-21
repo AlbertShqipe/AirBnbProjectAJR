@@ -8,8 +8,8 @@
   justify-content: space-between;
 
   .player-photo {
-    height: 100%;
-    width: 139px;
+    max-height: 181px;
+    max-width: 138px;
     object-fit: cover;
   }
 
