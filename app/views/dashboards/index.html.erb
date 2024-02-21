@@ -6,7 +6,7 @@
 </div>
 
 <div id="players" class="tabcontent">
-  <section class="tiles my-1">
+  <section class="tiles my-2 p-2">
     <% @players.each do |player| %>
     <article class="style1">
       <% if player.img.present? %>
@@ -31,7 +31,7 @@
 </div>
 
 <div id="bookings" class="tabcontent">
-  <section class="tiles my-1">
+  <section class="tiles my-2 p-2">
     <% @bookings.each do |booking| %>
       <% player = Player.find_by(id: booking.player_id) %>
         <article class="style1">

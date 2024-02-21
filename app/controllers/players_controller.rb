@@ -15,9 +15,9 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
+    @player.price_per_day = params[:player][:market_value].to_i / 365000
     @user_id = current_user.id
     @player.owner_id = @user_id
-    # raise
     if @player.save
       redirect_to player_path(@player)
     else
@@ -41,6 +41,6 @@ class PlayersController < ApplicationController
   end
 
   def player_params
-    params.require(:player).permit(:name, :position, :age, :address, :nationality, :height, :foot, :club, :market_value, :price_per_day, :photo, :owner_id)
+    params.require(:player).permit(:name, :position, :age, :address, :nationality, :height, :foot, :club, :market_value, :price_per_day, :photo, :owner_id, :img)
   end
 end
