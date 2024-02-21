@@ -10,6 +10,12 @@
 
 require 'net/http'
 require 'json'
+require "open-uri"
+require "nokogiri"
+
+
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
+
 
 Player.destroy_all
 User.destroy_all
@@ -193,12 +199,11 @@ end
 players_created = Player.all
 players_created.each do |player|
   puts "Adding photo to #{player.name}"
-  url_photos = "https://transfermarkt-api.vercel.app/players/#{player.id}/profile"
-  uri_photos = URI(url_photos)
-  photos = Net::HTTP.get(uri_photos)
-  data_photos = JSON.parse(photos)
-  players_photo = data_photos['imageURL']
-  player.update(img: players_photo)
+  top_url = "https://www.transfermarkt.com/-/profil/spieler/#{player.id}"
+  doc = Nokogiri::HTML.parse(URI.parse(top_url).open("User-Agent" => USER_AGENT).read)
+  photos = doc.search(".data-header__profile-image")
+  photo_url = photos.attribute("src").value
+  player.update(img: photo_url)
   puts "Photo added to #{player.name}"
 end
 
