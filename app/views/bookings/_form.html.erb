@@ -19,5 +19,6 @@
   <div class="result" data-total-price-booking-target="price">
 
   </div>
-  <%= f.submit "Réserver", data: { total_price_booking_target: "button"} , class: "disabled"  %>
+    <%= f.submit "Réserver",
+    data: { total_price_booking_target: "button", owner_renting_target: "btn"}, class: "disabled", id:"bookButton"%>
 <% end %>
