@@ -95,7 +95,7 @@
             <h1><span data-total-price-booking-target="pricePerDay"><%= @player.price_per_day %></span> €
               <span class="small">par jour.</span>
             </h1>
-            <div data-controller="owner-renting" data-user-id="<%= current_user.id %>" data-owner-id="<%= @player.owner_id %>">
+            <div data-controller="owner-renting" data-user-id="<%= current_user.id if user_signed_in? %>" data-owner-id="<%= @player.owner_id %>">
               <% if user_signed_in? %>
                 <%= render "bookings/form", booking: @booking %>
               <% else %>
