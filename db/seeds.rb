@@ -16,12 +16,12 @@ require "nokogiri"
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
 
-
+Booking.destroy_all
 Player.destroy_all
 User.destroy_all
 
 puts "----------------------------------------------------------------"
-puts "Records being destroyed"
+puts "Records destroyed"
 puts "----------------------------------------------------------------"
 
 puts "----------------------------------------------------------------"
@@ -32,21 +32,24 @@ albert = User.create(
   first_name: 'Albert',
   last_name: 'Nikolli',
   email: 'sarabanda.sarab@gmail.com',
-  password: 'azerty1234'
+  password: 'azerty1234',
+  avatar: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Jiří_Kylián_2020.jpg'
 )
 
 julien = User.create(
   first_name: 'Julien',
   last_name: 'Marchand',
   email: 'liverpool.liver@gmail.com',
-  password: 'azerty1234'
+  password: 'azerty1234',
+  avatar: 'https://upload.wikimedia.org/wikipedia/commons/8/81/Jürgen_Klopp%2C_Liverpool_vs._Chelsea%2C_UEFA_Super_Cup_2019-08-14_04.jpg'
 )
 
 ricardo = User.create(
   first_name: 'Ricardo',
   last_name: 'Canas',
   email: 'benfica.benfi@gmail.com',
-  password: 'azerty1234'
+  password: 'azerty1234',
+  avatar: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Mourinho_in_Moscow.jpg'
 )
 
 puts "----------------------------------------------------------------"
@@ -68,6 +71,22 @@ puts "----------------------------------------------------------------"
 puts "Creating players of liverpool"
 puts "----------------------------------------------------------------"
 
+position_mapping = {
+  "Centre-Forward" => "attaquant",
+  "Goalkeeper" => "gardien",
+  "Centre-Back" => "défenseur",
+  "Left Winger" => "attaquant",
+  "Second Striker" => "attaquant",
+  "Right-Back" => "défenseur",
+  "Defensive Midfield" => "milieu",
+  "Central Midfield" => "milieu",
+  "Attacking Midfield" => "milieu",
+  "Right Winger" => "attaquant",
+  "Left-Back" => "défenseur",
+  "Right Midfield" => "milieu",
+  "Left Midfield" => "milieu"
+}
+
 url_liverpool = 'https://transfermarkt-api.vercel.app/clubs/31/players'
 uri = URI(url_liverpool)
 response = Net::HTTP.get(uri)
@@ -79,11 +98,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Liverpool',
       market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
       price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365000,
@@ -94,11 +113,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Liverpool',
       market_value: 0,
       price_per_day: 0,
@@ -123,11 +142,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Benfica Lisbonne',
       market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
       price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365000,
@@ -138,11 +157,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Benfica Lisbonne',
       market_value: 0,
       price_per_day: 0,
@@ -167,11 +186,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Juventus',
       market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
       price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365000,
@@ -182,11 +201,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Juventus',
       market_value: 0,
       price_per_day: 0,

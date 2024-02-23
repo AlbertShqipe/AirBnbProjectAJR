@@ -1,5 +1,6 @@
 <h1>Dashboard</h1>
 
+<<<<<<< HEAD
 <div class="tabs-list">
   <button class="tablink-active" onclick="openCity(event, 'players')">Mes joueurs</button>
   <button class="tablink" onclick="openCity(event, 'bookings')">Mes bookings</button>
@@ -17,6 +18,40 @@
           <div class="row-action">
             <a href="#"><i class="fa-solid fa-pencil"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a>
           </div>
+=======
+<div class="tab d-flex justify-content-center">
+  <button class="tablinks" onclick="openCity(event, 'user')">Mes infos</button>
+  <button class="tablinks" onclick="openCity(event, 'players')">Mes joueurs</button>
+  <button class="tablinks" onclick="openCity(event, 'bookings')">Mes bookings</button>
+</div>
+
+<div id="user" class="tabcontent">
+  <h1> Bienvenue <%= @user.first_name %> </h1>
+  <img src=<%= @user.avatar %> alt= <%= @user.first_name %> >
+  <p>Nom : <%= @user.last_name %></p>
+  <p>Prénom : <%= @user.first_name %></p>
+  <%= link_to "Modifier mon profil", edit_user_registration_path %>
+</div>
+
+<div id="players" class="tabcontent">
+  <section class="tiles my-2 p-2">
+    <% @players.each do |player| %>
+    <article class="style1">
+      <% if player.img.present? %>
+        <span class="image">
+          <%= image_tag(player.img) %>
+        </span>
+      <% else %>
+        <span class="image">
+          <%= cl_image_tag player.photo.key%>
+        </span>
+      <% end %>
+      <a href="/players/<%= player.id %>">
+        <h3><%= player.name %></h3>
+        <p><%= player.club %></p>
+        <div class="content">
+          <p><%= player.price_per_day%> €</p>
+>>>>>>> 47987381c1f905ba8f6e69a8038297bb0daa2a30
         </div>
       <% end %>
     </div>
