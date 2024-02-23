@@ -16,7 +16,7 @@ require "nokogiri"
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"
 
-
+Booking.destroy_all
 Player.destroy_all
 User.destroy_all
 
@@ -71,6 +71,22 @@ puts "----------------------------------------------------------------"
 puts "Creating players of liverpool"
 puts "----------------------------------------------------------------"
 
+position_mapping = {
+  "Centre-Forward" => "attaquant",
+  "Goalkeeper" => "gardien",
+  "Centre-Back" => "défenseur",
+  "Left Winger" => "attaquant",
+  "Second Striker" => "attaquant",
+  "Right-Back" => "défenseur",
+  "Defensive Midfield" => "milieu",
+  "Central Midfield" => "milieu",
+  "Attacking Midfield" => "milieu",
+  "Right Winger" => "attaquant",
+  "Left-Back" => "défenseur",
+  "Right Midfield" => "milieu",
+  "Left Midfield" => "milieu"
+}
+
 url_liverpool = 'https://transfermarkt-api.vercel.app/clubs/31/players'
 uri = URI(url_liverpool)
 response = Net::HTTP.get(uri)
@@ -82,11 +98,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Liverpool',
       market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
       price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365000,
@@ -97,11 +113,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Liverpool',
       market_value: 0,
       price_per_day: 0,
@@ -126,11 +142,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Benfica Lisbonne',
       market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
       price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365000,
@@ -141,11 +157,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Benfica Lisbonne',
       market_value: 0,
       price_per_day: 0,
@@ -170,11 +186,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Juventus',
       market_value: player['marketValue'].delete('^.0-9').to_i * 1000000,
       price_per_day: player['marketValue'].delete('^.0-9').to_i * 1000000 / 365000,
@@ -185,11 +201,11 @@ players.each do |player|
     Player.create(
       id: player['id'],
       name: player['name'],
-      position: player['position'],
+      position: position_mapping[player['position']],
       age: player['age'],
       nationality: JSON.parse(player['nationality'].to_s).join(', '),
       height: player['height'],
-      foot: player['foot'],
+      foot: player['foot'] == 'right' ? 'droit' : 'gauche',
       club: 'Juventus',
       market_value: 0,
       price_per_day: 0,
