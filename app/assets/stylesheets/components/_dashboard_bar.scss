@@ -1,0 +1,14 @@
+.dashboard-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4%;
+  h1 {
+    margin-bottom: 5px;
+  }
+}
+
+.btn-list {
+  display: flex;
+  justify-content: space-around;
+}

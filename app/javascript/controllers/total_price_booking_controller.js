@@ -21,5 +21,4 @@ export default class extends Controller {
     price.innerHTML = `Total pour ${diffDays} jours : <br> <br> ${(diffDays * this.pricePerDayTarget.innerText).toLocaleString('fr-FR')} €`
     this.buttonTarget.classList.remove("disabled")
   }
-
 }
