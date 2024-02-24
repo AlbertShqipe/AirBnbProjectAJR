@@ -1,0 +1,122 @@
+.players-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.menu {
+  padding: 10px 40px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.495);
+  height: 600px;
+}
+
+.menu p {
+  font-size: 20px;
+  margin-bottom: 0;
+  margin-left: 10px;
+  padding: 10% 0;
+}
+
+.rows {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  flex-grow: 1;
+  margin-left: 10px;
+  max-height: 550px;
+  min-height: 550px;
+  overflow: auto;
+  padding: 20px;
+  margin: 40px 15px;
+}
+
+.row-player {
+  display: grid;
+  grid-template-columns: 50px repeat(auto-fit, minmax(0, 1fr));
+  align-items: center;
+  gap: 20px;
+  padding: 10px 15px;
+  background-color: white;
+  margin: 5px 0;
+  border-radius: 10px;
+  transition: 0.5s ease;
+  box-shadow: 1px 1px 5px grey;
+  max-height: 86px;
+  &:hover {
+    transform: translateX(10px);
+  }
+  p {
+    margin-bottom: 0;
+    text-align: center;
+  }
+  img {
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    object-fit: cover;
+    background-position: top;
+  }
+  .row-action {
+    grid-column: -1;
+  }
+}
+
+.rows-bookings {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  flex-grow: 1;
+  margin-left: 10px;
+  overflow: auto;
+  padding: 20px;
+  margin: 40px 15px;
+}
+
+.row-booking {
+  display: grid;
+  grid-template-columns: 100px 200px 140px 300px 150px 100px;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 15px;
+  background-color: white;
+  margin: 5px 0;
+  border-radius: 10px;
+  transition: 0.5s ease;
+  box-shadow: 1px 1px 5px grey;
+  max-height: 86px;
+  &:hover {
+    transform: translateX(10px);
+  }
+  p {
+    margin-bottom: 0;
+    text-align: center;
+  }
+  img {
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    object-fit: cover;
+    background-position: top;
+  }
+  .row-action {
+    grid-column: -1;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.clickable {
+  cursor: pointer;
+  &:hover {
+    color: rgba(107, 0, 0, 0.863);
+  }
+}
