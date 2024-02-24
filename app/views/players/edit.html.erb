@@ -1,6 +1,6 @@
-<h1>Players#edit</h1>
+<h1>Modifiez ce joueur</h1>
 
 
 <%= render "form", player: @player %>
 
-<%= link_to "supprime ce joueur", player_path(@player), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to "Supprimer ce joueur", player_path(@player), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button" %>
