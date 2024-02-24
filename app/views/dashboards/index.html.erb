@@ -53,7 +53,7 @@
               <%= cl_image_tag player.photo.key%>
             </span>
           <% end %>
-          <a href="/players/<%= player.id %>">
+          <a href="/players/<%= player.id %>/bookings/<%= booking.id %>">
             <h3><%= player.name %></h3>
             <span><%= booking.start_date %></span>
             <span><%= booking.end_date %></span>

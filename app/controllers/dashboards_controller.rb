@@ -2,7 +2,6 @@ class DashboardsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    raise
     @user = current_user
   end
 

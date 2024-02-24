@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :set_player, only: [:new, :create]
+  before_action :set_player, only: [:new, :create, :show, :edit, :update]
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
 
   def new
     @booking = Booking.new
@@ -16,6 +20,18 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @booking = @player.bookings.find(params[:id])
+  end
+
+  def update
+    @booking = @player.bookings.find(params[:id])
+    @user_id = current_user.id
+    @booking.total_price = @booking.calculate_total_price(@player.price_per_day)
+    @booking.update(booking_params)
+    redirect_to player_booking_path(@player, @booking)
   end
 
   private

@@ -1,3 +1,5 @@
+<h1>Ma réservation</h1>
+
 <div class="container mt-4">
   <div class="big-card">
     <div class="player-photo">
@@ -32,7 +34,7 @@
             </div>
             <div class="text">
               <h5>Propriétaire</h5>
-              <h6>Le propriétaire de <%= @player.name %> est <%= @player.owner.first_name.capitalize %> <%= @player.owner.last_name.capitalize %>.</h6>
+              <h6><%= @player.owner.first_name.capitalize %> <%= @player.owner.last_name.capitalize %>.</h6>
             </div>
           </div>
           <div class="infos-card">
@@ -41,7 +43,7 @@
             </div>
             <div class="text">
               <h5>Position</h5>
-              <h6><%= @player.name %> est un <%= @player.position.downcase %>.</h6>
+              <h6><%= @player.position.downcase %>.</h6>
             </div>
           </div>
           <div class="infos-card">
@@ -50,7 +52,7 @@
             </div>
             <div class="text">
               <h5>Age</h5>
-              <h6><%= @player.name %> a <%= @player.age %> ans.</h6>
+              <h6><%= @player.age %> ans.</h6>
             </div>
           </div>
           <div class="infos-card">
@@ -59,7 +61,7 @@
             </div>
             <div class="text">
               <h5>Meilleur pied</h5>
-              <h6>Le meilleur pied de <%= @player.name %> est le pied <%= @player.foot %>.</h6>
+              <h6><%= @player.foot %>.</h6>
             </div>
           </div>
           <div class="infos-card">
@@ -68,7 +70,7 @@
             </div>
             <div class="text">
               <h5>Taille</h5>
-              <h6><%= @player.name %> mesure <%= @player.height %>.</h6>
+              <h6><%= @player.height %>.</h6>
             </div>
           </div>
           <div class="infos-card">
@@ -77,7 +79,7 @@
             </div>
             <div class="text">
               <h5>Nationalité</h5>
-              <h6><%= @player.name %> est originaire de : <%= @player.nationality %>.</h6>
+              <h6><%= @player.nationality %>.</h6>
             </div>
           </div>
           <div class="infos-card">
@@ -111,8 +113,6 @@
     </div>
 
   <p>
-    <%= link_to "Back", players_path %>
+    <%= link_to "Back", dashboards_path %>
   </p>
 </div>
-
-<%= link_to "modifie le joueur",  edit_player_path(@player) %>
