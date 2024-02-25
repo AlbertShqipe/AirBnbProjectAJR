@@ -9,5 +9,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :players, through: :bookings
 
+  has_one_attached :avatar
+
   validates :first_name, :last_name, presence: true
 end
