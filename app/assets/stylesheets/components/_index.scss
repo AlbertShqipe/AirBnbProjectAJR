@@ -13,13 +13,24 @@
 @import "tiles";
 
 body  {
-  margin: 0;
+  margin: 0 0 120px 0; // margin to give the space to the navbar and the footer
   padding: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.content {
-  flex: 1;
+  line-height: 1;
+  vertical-align: baseline;
+  -webkit-text-size-adjust: none;
+  background: #ffffff;
+  color: #585858;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 16pt;
+  font-weight: 300;
+  padding-top: 56px;
+  .content {
+    position: relative;
+    z-index: 999; /* Lower than navbar */
+    /* Add more styles as needed */
+    flex: 1;
+  }
 }

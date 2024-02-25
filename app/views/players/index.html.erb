@@ -1,7 +1,18 @@
 <h1>Welcome to the Players List ⚽️</h1>
-
-<p>Click on the player that you'd like to rent</p>
-
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-auto">
+      <p>Click on the player that you'd like to rent</p>
+    </div>
+    <div class="col-auto">
+      <% if user_signed_in? %>
+        <%= link_to "Add a new player", new_player_path, class: 'btn' %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <section class="tiles">
   <% @players.each do |player| %>
@@ -25,9 +36,3 @@
 	</article>
   <% end %>
 </section>
-
-<% if user_signed_in? %>
-  <%= link_to "Add a new player", new_player_path, class: 'btn' %>
-<% else %>
-  <%= link_to "Sign in", new_user_session_path %>
-<% end %>
