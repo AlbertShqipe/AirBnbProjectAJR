@@ -1,10 +1,11 @@
 .footer {
   bottom: 0;
   left: 0;
+
   width: 100%;
-  position: fixed;
   height: 105px;
   z-index: 1000;
+  margin-top: auto;
   .footer-up {
   padding: 0px 50px;
   height: 120px;
@@ -12,16 +13,18 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-
   }
+
   img {
     width: 80px;
     height: 80px;
   }
+
   .last {
     background-color: $grey_footer;
     text-align: center;
   }
+
 }
 
 .last p {

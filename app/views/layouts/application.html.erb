@@ -14,51 +14,54 @@
 
   <body>
 
-      <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-        <div class="container-fluid">
-          <%= link_to players_path, class: "navbar-brand" do %>
-            <%= cl_image_tag('a6Fm78701_qcav6c') %>
-          <% end %>
-          <div class="navbar-logo">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="container-fluid">
+        <%= link_to players_path, class: "navbar-brand" do %>
+          <%= cl_image_tag('a6Fm78701_qcav6c') %>
+        <% end %>
+        <div class="navbar-logo">
+          <% if current_page?(root_path) %>
+            <% "" %>
+          <% else %>
             <%= cl_image_tag('Nouveau_Mercato_vmmzbj') %>
-          </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item active">
-                <%= link_to "Home", root_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Messages", players_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item dropdown">
-                <% if user_signed_in? %>
-                  <% if current_user.photo.present? %>
-                    <%= image_tag(current_user.photo, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false)  %>
-                  <% else %>
-                    <%= "" %>
-                  <% end %>
-                  <%= cl_image_tag(current_user.avatar.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <% end %>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Messages", players_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <% if user_signed_in? %>
+                <% if current_user.photo.present? %>
+                  <%= image_tag(current_user.photo, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false)  %>
                 <% else %>
-                  <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+                  <%= "" %>
                 <% end %>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <% if user_signed_in? %>
-                  <%= link_to "Dashboard", dashboards_path, class: "dropdown-item" %>
-                  <%= link_to "Add a new player", new_player_path, class: "dropdown-item"%>
-                    <%= link_to "Log Out", destroy_user_session_path, data:{turbo_method: :delete}, class: "dropdown-item" %>
-                  <% else %>
-                    <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
-                  <% end %>
-                </div>
-              </li>
-            </ul>
-          </div>
+                <%= cl_image_tag(current_user.avatar.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+              <% else %>
+                <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+              <% end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <% if user_signed_in? %>
+                <%= link_to "Dashboard", dashboards_path, class: "dropdown-item" %>
+                <%= link_to "Add a new player", new_player_path, class: "dropdown-item"%>
+                  <%= link_to "Log Out", destroy_user_session_path, data:{turbo_method: :delete}, class: "dropdown-item" %>
+                <% else %>
+                  <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
+                <% end %>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-
+    </div>
     <div class="container">
       <div class="content">
         <%= yield %>
@@ -82,6 +85,5 @@
         <p>Construisez votre équipe de rêve en recrutant les meilleurs joueurs dans les meilleurs clubs.</p>
       </div>
     </div>
-
   </body>
 </html>

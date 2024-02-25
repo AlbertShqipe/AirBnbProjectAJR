@@ -1,17 +1,13 @@
-<h1 class="mt-5">Welcome
-<% if user_signed_in? %>
-<%= current_user.first_name %>
-<% else %>
-<%= "" %>
-<% end %>
-  !
-</h1>
-<h2>The players market where you can rent football players</h2>
-
-<p>If you are looking to create the perfect football team, you are in the right place!!</p>
-<p>Here you will be able to create your football players profile and rent them or you can rent someones players to be
-  part of your team.</p>
-<p>Please click the button below to see the available players or to be able to add yours for rent.</p>
-<h2>Best of luck!</h2>
-
-<%= link_to "Players", players_path, class:'btn'%>
+<div class="d-flex justify-content-center mb-4 mt-3">
+  <%= cl_image_tag('Nouveau_Mercato_vmmzbj',style:"width:180px;border-radius:10px;margin:auto") %>
+</div>
+<div class="row">
+  <div class="col d-flex flex-column justify-content-center align-items-center">
+    <h2 style="margin-top:0;;padding-top:0px;text-align:center;">Le marché où vous pouvez louer des joueurs de football</h2>
+    <p>Si vous cherchez à créer l'équipe de football parfaite, vous êtes au bon endroit !!</p>
+    <p>Ici, vous pourrez créer le profil de vos joueurs et les louer, ou vous pouvez louer les joueurs de quelqu'un d'autre pour faire partie de votre équipe.</p>
+    <p>Veuillez cliquer sur le bouton ci-dessous pour voir les joueurs disponibles ou pour pouvoir ajouter les vôtres à la location.</p>
+    <h2>Meilleure chance !</h2>
+    <%= link_to "Commencer!", players_path, class:'btn'%>
+  </div>
+</div>

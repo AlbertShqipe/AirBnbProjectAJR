@@ -11,6 +11,8 @@
 @import "dashboard_bar";
 @import "button_anchor";
 @import "tiles";
+@import "loading_spinner";
+
 
 body  {
   margin: 0 0 0 0; // margin bottom give the space to the navbar
@@ -33,6 +35,6 @@ body  {
     /* Add more styles as needed */
     flex: 1;
     display: block;
-    padding: 115px 0 115px 0;
+    padding: 115px 0 0 0;
   }
 }
