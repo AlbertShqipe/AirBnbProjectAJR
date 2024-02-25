@@ -18,7 +18,7 @@
       </div>
       <div class="card-profile">
         <div class="profile-image">
-          <%= image_tag @user.avatar, alt: @user.first_name %>
+                <%= cl_image_tag(current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
         </div>
         <div class="text-card">
           <h3><%= @user.first_name %> <%= @user.last_name %></h3>
