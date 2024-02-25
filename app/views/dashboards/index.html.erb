@@ -2,7 +2,7 @@
     <h1>Bienvenue, <%= @current_user.first_name %> !</h1>
   </div>
 
-<div class="container" data-controller="tabs" data-tabs-default-value="user">
+<div  data-controller="tabs" data-tabs-default-value="user">
 
     <div class="btn-list">
       <button class="btn-active" data-tabs-target="btn" data-action="click->tabs#open" data-id="user">Mes infos</button>
@@ -18,7 +18,7 @@
       </div>
       <div class="card-profile">
         <div class="profile-image">
-          <%= image_tag @user.avatar, alt: @user.first_name %>
+                <%= cl_image_tag(current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
         </div>
         <div class="text-card">
           <h3><%= @user.first_name %> <%= @user.last_name %></h3>
@@ -51,14 +51,21 @@
       <div class="rows" data-menu-filters-target="tab" data-menu-filters-type-value="players">
         <% @players.each do |player| %>
           <div class="row-player">
+          <%= link_to player_path(id: player.id) do %>
             <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
+            <% end %>
             <p><%= player.name %></p>
             <p><%= player.position.capitalize %></p>
             <p><%= number_with_delimiter(player.market_value, delimiter: ' ') %> €</p>
             <p><%= player.age %> ans</p>
             <div class="row-action">
-              <a href="#"><i class="fa-solid fa-pencil"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a>
-
+            <%= link_to edit_player_path(id: player.id) do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+            |
+            <%# <%= link_to player_path(id: player.id), method: :delete, data: { confirm: 'Êtes-vous sûr ?' } do %>
+              <%# <i class="fa-solid fa-trash"></i> %>
+            <%# <% end %>
             </div>
           </div>
         <% end %>
@@ -66,13 +73,18 @@
           <div class="rows hidden" data-menu-filters-target="tab" data-menu-filters-type-value="gardiens">
         <% @gardiens.each do |player| %>
           <div class="row-player">
-            <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
+            <%= link_to player_path(id: player.id) do %>
+              <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
+            <% end %>
             <p><%= player.name %></p>
             <p><%= player.position.capitalize %></p>
             <p><%= number_with_delimiter(player.market_value, delimiter: ' ') %> €</p>
             <p><%= player.age %> ans</p>
             <div class="row-action">
-              <a href="#"><i class="fa-solid fa-pencil"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a>
+              <%= link_to edit_player_path(id: player.id) do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+            |
             </div>
           </div>
         <% end %>
@@ -80,13 +92,19 @@
           <div class="rows hidden" data-menu-filters-target="tab" data-menu-filters-type-value="defenseurs">
         <% @defenseurs.each do |player| %>
           <div class="row-player">
-            <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
+            <%= link_to player_path(id: player.id) do %>
+              <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
+            <% end %>
             <p><%= player.name %></p>
             <p><%= player.position.capitalize %></p>
             <p><%= number_with_delimiter(player.market_value, delimiter: ' ') %> €</p>
             <p><%= player.age %> ans</p>
             <div class="row-action">
-              <a href="#"><i class="fa-solid fa-pencil"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a>
+            <%= link_to edit_player_path(id: player.id) do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+            |
+
             </div>
           </div>
         <% end %>
@@ -94,13 +112,19 @@
           <div class="rows hidden" data-menu-filters-target="tab" data-menu-filters-type-value="milieux">
         <% @milieux.each do |player| %>
           <div class="row-player">
-            <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
+            <%= link_to player_path(id: player.id) do %>
+              <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
+            <% end %>
             <p><%= player.name %></p>
             <p><%= player.position.capitalize %></p>
             <p><%= number_with_delimiter(player.market_value, delimiter: ' ') %> €</p>
             <p><%= player.age %> ans</p>
             <div class="row-action">
-              <a href="#"><i class="fa-solid fa-pencil"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a>
+                          <%= link_to edit_player_path(id: player.id) do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+            |
+
             </div>
           </div>
         <% end %>
@@ -108,13 +132,19 @@
           <div class="rows hidden" data-menu-filters-target="tab" data-menu-filters-type-value="attaquants">
         <% @attaquants.each do |player| %>
           <div class="row-player">
-            <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
+            <%= link_to player_path(id: player.id) do %>
+              <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
+            <% end %>
             <p><%= player.name %></p>
             <p><%= player.position.capitalize %></p>
             <p><%= number_with_delimiter(player.market_value, delimiter: ' ') %> €</p>
             <p><%= player.age %> ans</p>
             <div class="row-action">
-              <a href="#"><i class="fa-solid fa-pencil"></i></a> | <a href="#"><i class="fa-solid fa-trash"></i></a>
+                          <%= link_to edit_player_path(id: player.id) do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+            |
+
             </div>
           </div>
         <% end %>
@@ -127,6 +157,7 @@
       <div class="rows-bookings" data-menu-filters-target="tab" data-menu-filters-type-value="players">
         <% @bookings.each do |booking| %>
           <% player = Player.find_by(id: booking.player_id) %>
+          <%= link_to player_booking_path(player_id: booking.player.id, id: booking.id) do %>
           <div class="row-booking">
             <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
             <p><%= player.name %></p>
@@ -135,28 +166,9 @@
             <p><%= number_with_delimiter(booking.total_price, delimiter: ' ') %> €</p>
             <p><%= player.age %> ans</p>
           </div>
+          <% end %>
         <% end %>
       </div>
     </div>
   </div>
-  <%# <button class="mb-4 mt-4">
-    <%= link_to "Back to Players", players_path %>
 </div>
-<%# <script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabs-elements");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].classList.remove("tablink-active");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.classList.add("tablink-active");
-}
-  document.addEventListener("DOMContentLoaded", function() {
-  openCity({ currentTarget: document.querySelector(".tablink.active") }, 'players');
-});
-</script> %>

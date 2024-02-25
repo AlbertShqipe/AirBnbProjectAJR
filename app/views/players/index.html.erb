@@ -1,8 +1,14 @@
-<h1>Welcome to the Players List ⚽️</h1>
-
-<p>Click on the player that you'd like to rent</p>
-
-
+<h1>Welcome to the Players Market ⚽️</h1>
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-auto">
+      <% if user_signed_in? %>
+        <%= link_to "Ajouter un nouveau joueur", new_player_path, class: 'btn' %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
 <section class="tiles">
   <% @players.each do |player| %>
   <article class="style1">
@@ -16,22 +22,13 @@
       </span>
     <% end %>
 		<a href="/players/<%= player.id %>">
-      <h3><%= player.name %></h3>
-      <p><%= player.club %></p>
-      <div class="content">
-        <p><%= player.price_per_day%> €</p>
+      <div class="con">
+      <h2><%= player.name %></h2>
+      <h3><%= player.club %></h3>
+        <h3><%= player.price_per_day%> €</h3>
       </div>
 		</a>
 	</article>
   <% end %>
 </section>
-
-<% if user_signed_in? %>
-  <button class='mt-5'>
-  <%= link_to "Add a new player", new_player_path %>
-</button>
-<% else %>
-  <button class='mt-5'>
-  <%= link_to "Sign in", new_user_session_path %>
-</button>
-<% end %>
+</div>

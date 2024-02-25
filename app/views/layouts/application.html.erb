@@ -13,11 +13,19 @@
   </head>
 
   <body>
+
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container-fluid">
-      <%= link_to players_path, class: "navbar-brand" do %>
-        <%= image_tag('Icone_navbar.jpeg') %>
-      <% end %>
+        <%= link_to players_path, class: "navbar-brand" do %>
+          <%= cl_image_tag('a6Fm78701_qcav6c') %>
+        <% end %>
+        <div class="navbar-logo">
+          <% if current_page?(root_path) %>
+            <% "" %>
+          <% else %>
+            <%= cl_image_tag('Nouveau_Mercato_vmmzbj') %>
+          <% end %>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,8 +39,13 @@
             </li>
             <li class="nav-item dropdown">
               <% if user_signed_in? %>
-                <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= current_user.avatar %>" />
+                <% if current_user.photo.present? %>
+                  <%= image_tag(current_user.photo, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false)  %>
                 <% else %>
+                  <%= "" %>
+                <% end %>
+                <%= cl_image_tag(current_user.avatar.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+              <% else %>
                 <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -43,17 +56,13 @@
                 <% else %>
                   <%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %>
                 <% end %>
-
               </div>
             </li>
           </ul>
         </div>
       </div>
     </div>
-
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <div class="content">
         <%= yield %>
       </div>
