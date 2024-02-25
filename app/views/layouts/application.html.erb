@@ -16,9 +16,12 @@
     <div class="content">
       <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
         <div class="container-fluid">
-        <%= link_to players_path, class: "navbar-brand" do %>
-          <%= image_tag('Icone_navbar.jpeg') %>
-        <% end %>
+          <%= link_to players_path, class: "navbar-brand" do %>
+            <%= cl_image_tag('a6Fm78701_qcav6c') %>
+          <% end %>
+          <div class="navbar-logo">
+            <%= cl_image_tag('Nouveau_Mercato_vmmzbj') %>
+          </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -50,9 +53,6 @@
           </div>
         </div>
       </div>
-    <!--To take out the line below-->
-
-    <%= link_to "Log Out", destroy_user_session_path, data:{turbo_method: :delete}, class: "dropdown-item" %>
 
     <div class="container">
       <div class="content">
