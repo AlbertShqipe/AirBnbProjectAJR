@@ -17,9 +17,9 @@
     <% end %>
 		<a href="/players/<%= player.id %>">
       <div class="content">
-      <h3><%= player.name %></h3>
-      <p><%= player.club %></p>
-        <p><%= player.price_per_day%> €</p>
+      <h2><%= player.name %></h2>
+      <h3><%= player.club %></h3>
+        <h3><%= player.price_per_day%> €</h3>
       </div>
 		</a>
 	</article>
@@ -27,11 +27,7 @@
 </section>
 
 <% if user_signed_in? %>
-  <button class='mt-5'>
-  <%= link_to "Add a new player", new_player_path %>
-</button>
+  <%= link_to "Add a new player", new_player_path, class: 'btn' %>
 <% else %>
-  <button class='mt-5'>
   <%= link_to "Sign in", new_user_session_path %>
-</button>
 <% end %>
