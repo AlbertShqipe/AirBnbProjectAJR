@@ -13,8 +13,8 @@
 @import "tiles";
 
 body  {
-  margin: 0 0 120px 0; // margin bottom give the space to the navbar
-  padding: 110px 0 0 0; // padding bottom to give the space to the footer
+  margin: 0 0 0 0; // margin bottom give the space to the navbar
+  padding: 0 0 0 0; // padding bottom to give the space to the footer
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,5 +32,7 @@ body  {
     z-index: 999; /* Lower than navbar */
     /* Add more styles as needed */
     flex: 1;
+    display: block;
+    padding: 115px 0 115px 0;
   }
 }
