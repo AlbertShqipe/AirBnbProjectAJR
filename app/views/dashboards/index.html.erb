@@ -1,3 +1,4 @@
+<%= link_to "Back", :back, class: "link" %>
   <div class="dashboard-bar">
     <h1>Bienvenue, <%= @current_user.first_name %> !</h1>
   </div>
@@ -5,9 +6,9 @@
 <div  data-controller="tabs" data-tabs-default-value="user">
 
     <div class="btn-list">
-      <button class="btn-active" data-tabs-target="btn" data-action="click->tabs#open" data-id="user">Mes infos</button>
-      <button class="btnlink" data-tabs-target="btn" data-action="click->tabs#open" data-id="players">Mes joueurs</button>
-      <button class="btnlink" data-tabs-target="btn" data-action="click->tabs#open" data-id="bookings">Mes bookings</button>
+      <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="user">Mes infos</button>
+      <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="players">Mes joueurs</button>
+      <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="bookings">Mes bookings</button>
     </div>
 
 
@@ -18,8 +19,13 @@
       </div>
       <div class="card-profile">
         <div class="profile-image">
-          <%= cl_image_tag(current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-        </div>
+          <% if user_signed_in? && current_user.avatar.present? %>
+            <%= cl_image_tag(current_user.avatar.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <% elsif user_signed_in? && current_user.photo.present? %>
+            <%= image_tag(current_user.photo, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <% else %>
+            <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+          <% end %>        </div>
         <div class="text-card">
           <h3><%= @user.first_name %> <%= @user.last_name %></h3>
           <p><%= @user.email %></p>
@@ -30,8 +36,8 @@
         </div>
       </div>
       <div class="edit-buttons">
-        <button><%= link_to "Modifier mon profil", edit_user_registration_path %></button>
-        <button><%= link_to "Supprimer mon profil", edit_user_registration_path %></button>
+        <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn-edit" %>
+        <%= link_to "Supprimer mon profil", edit_user_registration_path, class: "btn-danger" %>
       </div>
     </div>
   </div>
@@ -140,7 +146,7 @@
             <p><%= number_with_delimiter(player.market_value, delimiter: ' ') %> €</p>
             <p><%= player.age %> ans</p>
             <div class="row-action">
-                          <%= link_to edit_player_path(id: player.id) do %>
+              <%= link_to edit_player_path(id: player.id) do %>
               <i class="fa-solid fa-pencil"></i>
             <% end %>
             |
