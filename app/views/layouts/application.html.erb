@@ -16,7 +16,7 @@
 
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container-fluid">
-        <%= link_to players_path, class: "navbar-brand", style:"margin-left:85px" do %>
+        <%= link_to players_path, class: "navbar-brand" do %>
           <%= cl_image_tag('a6Fm78701_qcav6c') %>
         <% end %>
         <div class="navbar-logo">
@@ -34,20 +34,9 @@
             <li class="nav-item active">
               <%= link_to "Home", root_path, class: "nav-link", style:" line-height: 40px;" %>
             </li>
-            <li class="nav-item">
-              <%# <%= link_to "Messages", players_path, class: "nav-link" %>
-            <% if user_signed_in? %>
-              <%= link_to "Dashboard", dashboards_path, class: "nav-link", style:" line-height: 40px;" %>
-            <% else %>
-              <% "" %>
-            <% end %>
-
-            </li>
             <li class="nav-item dropdown" style="margin-right50px">
-              <% if user_signed_in? && current_user.avatar.present? %>
-                <%= cl_image_tag(current_user.avatar.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-              <% elsif user_signed_in? && current_user.avatar.present? == false %>
-                <%= cl_image_tag("avatar_nybl5s", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+              <% if user_signed_in? %>
+                <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= current_user.avatar %>" />
               <% else %>
                 <%= link_to "Sign in", new_user_session_path, class: "nav-link", style:" line-height: 40px;" %>
               <% end %>

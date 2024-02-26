@@ -22,10 +22,10 @@
       </span>
     <% end %>
 		<a href="/players/<%= player.id %>">
-      <div class="con">
+      <h3><%= player.price_per_day%> €</h3>
       <h2><%= player.name %></h2>
-      <h3><%= player.club %></h3>
-        <h3><%= player.price_per_day%> €</h3>
+      <div class="con">
+      <h3><%= player.position %></h3>
       </div>
 		</a>
 	</article>

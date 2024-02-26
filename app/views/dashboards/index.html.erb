@@ -19,11 +19,8 @@
       </div>
       <div class="card-profile">
         <div class="profile-image">
-          <% if user_signed_in? && current_user.avatar.present? %>
-            <%= cl_image_tag(current_user.avatar.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-          <% else %>
-            <%= cl_image_tag("avatar_nybl5s", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-          <% end %>        </div>
+          <%= cl_image_tag @user.avatar, alt: @user.first_name %>
+        </div>
         <div class="text-card">
           <h3><%= @user.first_name %> <%= @user.last_name %></h3>
           <p><%= @user.email %></p>
