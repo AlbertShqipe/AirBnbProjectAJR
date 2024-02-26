@@ -46,8 +46,10 @@
             <li class="nav-item dropdown" style="margin-right50px">
               <% if user_signed_in? && current_user.avatar.present? %>
                 <%= cl_image_tag(current_user.avatar.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-              <% else %>
+              <% elsif user_signed_in? && current_user.avatar.present? == false %>
                 <%= cl_image_tag("avatar_nybl5s", class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+              <% else %>
+                <%= link_to "Sign in", new_user_session_path, class: "nav-link", style:" line-height: 40px;" %>
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <% if user_signed_in? %>
