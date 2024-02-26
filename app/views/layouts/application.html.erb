@@ -46,8 +46,6 @@
             <li class="nav-item dropdown" style="margin-right50px">
               <% if user_signed_in? && current_user.avatar.present? %>
                 <%= cl_image_tag(current_user.avatar.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-              <% elsif user_signed_in? && current_user.photo.present? %>
-                <%= image_tag(current_user.photo, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style:"margin-right:85px" ) %>
               <% else %>
                 <%= link_to "Sign in", new_user_session_path, class: "nav-link", style:" line-height: 40px;margin-right:85px" %>
               <% end %>

@@ -33,7 +33,6 @@ albert = User.create(
   last_name: 'Nikolli',
   email: 'sarabanda.sarab@gmail.com',
   password: 'azerty1234',
-  avatar: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Jiří_Kylián_2020.jpg'
 )
 
 julien = User.create(
@@ -41,7 +40,6 @@ julien = User.create(
   last_name: 'Marchand',
   email: 'liverpool.liver@gmail.com',
   password: 'azerty1234',
-  avatar: 'https://upload.wikimedia.org/wikipedia/commons/8/81/Jürgen_Klopp%2C_Liverpool_vs._Chelsea%2C_UEFA_Super_Cup_2019-08-14_04.jpg'
 )
 
 ricardo = User.create(
@@ -49,7 +47,6 @@ ricardo = User.create(
   last_name: 'Canas',
   email: 'benfica.benfi@gmail.com',
   password: 'azerty1234',
-  avatar: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Mourinho_in_Moscow.jpg'
 )
 
 puts "----------------------------------------------------------------"
