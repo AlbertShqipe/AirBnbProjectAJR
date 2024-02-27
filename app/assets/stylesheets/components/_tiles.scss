@@ -1,23 +1,9 @@
 
-// Rainbow text in the tilse
-@keyframes rainbow {
-  0% { text-shadow: 0 0 6px red; }
-  14% { text-shadow: 0 0 6px orange; }
-  28% { text-shadow: 0 0 6px yellow; }
-  42% { text-shadow: 0 0 6px green; }
-  57% { text-shadow: 0 0 6px blue; }
-  71% { text-shadow: 0 0 6px indigo; }
-  85% { text-shadow: 0 0 6px violet; }
-  100% { text-shadow: 0 0 6px red; }
-}
-.rainbow {
-  animation: rainbow 10s linear infinite;
-}
-
-.rainbow-text {
-  animation: rainbow 5s linear infinite;
-}
 /* Tiles */
+#text-tiles {
+  font-size: 17.5px;
+  margin-bottom: 20px;
+}
 
 .tiles {
   display: -moz-flex;
@@ -29,7 +15,8 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   position: relative;
-  margin: 5px 0 10px -2.5em;
+  margin: -2.5em 0 0 -2.5em;
+
 }
 
 .tiles article {
@@ -56,6 +43,7 @@
 .tiles article > .image img {
   display: block;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .tiles article > .image:before {
@@ -92,7 +80,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  opacity: 1;
+  opacity: 0;
   z-index: 2;
 }
 
@@ -113,10 +101,10 @@
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  -moz-transition: background-color 0.1s ease, -moz-transform 0.1s ease;
-  -webkit-transition: background-color 0.1s ease, -webkit-transform 0.1s ease;
-  -ms-transition: background-color 0.1s ease, -ms-transform 0.1s ease;
-  transition: background-color 0.1s ease, transform 0.1s ease;
+  -moz-transition: background-color 0.5s ease, -moz-transform 0.5s ease;
+  -webkit-transition: background-color 0.5s ease, -webkit-transform 0.5s ease;
+  -ms-transition: background-color 0.5s ease, -ms-transform 0.5s ease;
+  transition: background-color 0.5s ease, transform 0.5s ease;
   position: absolute;
   top: 0;
   left: 0;
@@ -125,43 +113,40 @@
   padding: 1em;
   border-radius: 4px;
   border-bottom: 0;
-  color: inherit;
+  color: #ffffff;
   text-align: center;
   text-decoration: none;
   z-index: 3;
 }
 
-
 .tiles article > a:hover {
   color: #ffffff !important;
   text-shadow:
-  -1px -1px 0 #010024,
-  1px -1px 0 #020085,
-  -1px 1px 0 #020085,
-  1px 1px 0 #020085 ;
+    -1px -1px 0 #010024,
+    1px -1px 0 #020085,
+    -1px 1px 0 #020085,
+    1px 1px 0 #020085 ;
 }
 
-
-
-
-.tiles article > a .con {
+.tiles article > a .content {
   -moz-transition: max-height 0.5s ease, opacity 0.5s ease;
   -webkit-transition: max-height 0.5s ease, opacity 0.5s ease;
   -ms-transition: max-height 0.5s ease, opacity 0.5s ease;
   transition: max-height 0.5s ease, opacity 0.5s ease;
   width: 100%;
   max-height: 0;
-  line-height: 1.5;
-  margin-top: 0.35em;
+  margin-top: 0;
   opacity: 0;
-}
+  text-shadow:
+    -1px -1px 0 #010024,
+    1px -1px 0 #020085,
+    -1px 1px 0 #020085,
+    1px 1px 0 #020085 ;
+  }
 
-.tiles article > a .con > :last-child {
-  margin-bottom: 10px;
-}
 
 .tiles article.style1 > .image:before {
-  background-color: #a0a0a0;
+  background-color: #242424;
 }
 
 .tiles article:hover > .image {
@@ -171,27 +156,38 @@
   transform: scale(1.1);
 }
 
-.tiles article:hover > .image:before {
+  body:not(.is-touch) .tiles article:hover > .image {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  }
+
+  body:not(.is-touch) .tiles article:hover > .image:before {
   background-color: #333333;
-  opacity: 0.35;
-}
+  opacity: 0.20;
+  }
 
-.tiles article:hover > .image:after {
+  body:not(.is-touch) .tiles article:hover > .image:after {
   opacity: 0;
-}
+  }
 
-.tiles article:hover .con {
+  body:not(.is-touch) .tiles article:hover .content {
   max-height: 15em;
   opacity: 1;
-}
+  }
 
-.tiles article {
+  * + .tiles {
+  margin-top: 1em;
+  }
+
+  body.is-preload .tiles article {
   -moz-transform: scale(0.9);
   -webkit-transform: scale(0.9);
   -ms-transform: scale(0.9);
   transform: scale(0.9);
-  opacity: 1;
-}
+  opacity: 0;
+  }
 
 @media screen and (max-width: 1280px) {
 

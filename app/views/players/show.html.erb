@@ -99,9 +99,7 @@
               <% if user_signed_in? %>
                 <%= render "bookings/form", booking: @booking %>
               <% else %>
-                <button class='mt-5'>
-                <%= link_to "Sign in", new_user_session_path %>
-              </button>
+                <%= link_to "Sign in", new_user_session_path, class:"btn" %>
               <% end %>
             </div>
           </div>
