@@ -13,10 +13,6 @@
 
 /* Basic */
 
-@-ms-viewport {
-  width: device-width;
-}
-
 @media screen and (max-width: 480px) {
 
   html, body {
@@ -28,7 +24,6 @@
 html {
   box-sizing: border-box;
 }
-
 
 ol, ul {
 	list-style: none;
@@ -53,13 +48,10 @@ table {
 	border-spacing: 0;
 }
 
-
-
 mark {
 	background-color: transparent;
 	color: inherit;
 }
-
 
 /* Type */
 
@@ -448,16 +440,6 @@ ul.actions.fit {
 			box-shadow: none;
 		}
 
-		input[type="text"]:focus,
-		input[type="password"]:focus,
-		input[type="email"]:focus,
-		input[type="tel"]:focus,
-		select:focus,
-		textarea:focus {
-			// border-bottom-color: #f2849e;
-			// box-shadow: inset 0 -1px 0 0 #f2849e;
-		}
-
 	select {
 		background-size: 1.25rem;
 		background-repeat: no-repeat;
@@ -744,20 +726,6 @@ ul.actions.fit {
 		button.fit,
 		.button.fit {
 			width: 100%;
-		}
-
-		input[type="submit"]:hover,
-		input[type="reset"]:hover,
-		input[type="button"]:hover,
-		button:hover,
-
-
-		input[type="submit"]:active,
-		input[type="reset"]:active,
-		input[type="button"]:active,
-		button:active,
-		.button:active {
-
 		}
 
 		input[type="submit"].small,
