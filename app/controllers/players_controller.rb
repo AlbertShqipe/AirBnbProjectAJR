@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   def index
-    @players = Player.all
+    params[:query].present? ? @players = Player.where("position ILIKE ?", "%#{params[:query]}%") : @players = Player.all
   end
 
   def show

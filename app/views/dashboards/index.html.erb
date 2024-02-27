@@ -162,7 +162,7 @@
             <%= player.img.present? ? image_tag(player.img) : cl_image_tag(player.photo.key) %>
             <p><%= player.name %></p>
             <p><%= player.position.capitalize %></p>
-            <p><%= booking.start_date <= @today ? "#{(booking.end_date - booking.start_date).to_i} jours restants" : "Arrive dans #{(booking.end_date - booking.start_date).to_i} jours" %></p>
+            <p><%= booking.start_date <= @today ? "#{(booking.end_date - booking.start_date).to_i} jours restants" : "Arrive dans #{(booking.start_date - Date.today).to_i} jours" %></p>
             <p><%= number_with_delimiter(booking.total_price, delimiter: ' ') %> €</p>
             <p><%= player.age %> ans</p>
           </div>
