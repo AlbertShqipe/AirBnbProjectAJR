@@ -1,5 +1,15 @@
 <h1>Welcome to the Players Market ⚽️</h1>
 <div class="container">
+  <div>
+    <%= form_with url: players_path, method: :get do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Quelle poste souhaitez-vous renforcer ?"
+        %>
+      <%= submit_tag "GO !", name: "Position", class: "button mt-3" %>
+    <% end %>
+  </div>
   <div class="row justify-content-between">
     <div class="col-auto">
       <% if user_signed_in? %>

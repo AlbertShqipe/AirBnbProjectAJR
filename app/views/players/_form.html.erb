@@ -1,13 +1,13 @@
 <%= simple_form_for(player) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :position %>
+  <%= f.input :name, label: "Nom" %>
+  <%= f.input :position, collection: ["gardien", "défenseur", "milieu", "attaquant"] %>
   <%= f.input :age %>
   <%= f.input :address %>
-  <%= f.input :nationality %>
-  <%= f.input :height %>
-  <%= f.input :foot %>
-  <%= f.input :club %>
-  <%= f.input :market_value %>
+  <%= f.input :nationality, label: "Nationalité" %>
+  <%= f.input :height, label: "Taille" %>
+  <%= f.input :foot, label: "Pied", collection: ["Droit", "Gauche"] %>
+  <%= f.input :club, collection: ["Benfica Lisbonne", "Juventus", "Liverpool"] %>
+  <%= f.input :market_value, label: "Valeur du marché" %>
   <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
