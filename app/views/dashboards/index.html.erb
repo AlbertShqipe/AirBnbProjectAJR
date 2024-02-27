@@ -1,4 +1,4 @@
-<%= link_to "Back", :back, class: "link" %>
+<%= link_to "Retour", :back, class: "btn" %>
   <div class="dashboard-bar">
     <h1>Bienvenue, <%= @current_user.first_name %> !</h1>
   </div>
@@ -8,7 +8,7 @@
     <div class="btn-list">
       <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="user">Mes infos</button>
       <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="players">Mes joueurs</button>
-      <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="bookings">Mes bookings</button>
+      <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="bookings">Mes Réservations</button>
     </div>
 
 
@@ -32,7 +32,6 @@
       </div>
       <div class="edit-buttons">
         <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn-edit" %>
-        <%= link_to "Supprimer mon profil", edit_user_registration_path, class: "btn-danger" %>
       </div>
     </div>
   </div>

@@ -26,7 +26,7 @@ export default class extends Controller {
     if (this.userId === this.playerOwnerId) {
       const button = document.getElementById("bookButton");
       button.disabled = true;
-      button.value = "This player is yours"
+      button.value = "Propriétaire"
     }
   }
 }
