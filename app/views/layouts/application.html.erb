@@ -32,16 +32,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
             <li class="nav-item active">
-              <%= link_to "Home", root_path, class: "nav-link" %>
+              <%= link_to "Home", root_path, class: "nav-link", style:" line-height: 40px;" %>
             </li>
-            <li class="nav-item">
-              <%= link_to "Messages", players_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="margin-right50px">
               <% if user_signed_in? %>
-                <%= cl_image_tag(current_user.avatar.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+                <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= current_user.avatar %>" />
               <% else %>
-                <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+                <%= link_to "Sign in", new_user_session_path, class: "nav-link", style:" line-height: 40px;" %>
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <% if user_signed_in? %>
@@ -57,6 +54,7 @@
         </div>
       </div>
     </div>
+
     <div class="container">
       <div class="content">
         <%= yield %>
@@ -75,9 +73,6 @@
           <p>Faites votre mercato!</p>
         </div>
         <%= image_tag('Juv.png') %>
-      </div>
-      <div class="last">
-        <p>Construisez votre équipe de rêve en recrutant les meilleurs joueurs dans les meilleurs clubs.</p>
       </div>
     </div>
   </body>

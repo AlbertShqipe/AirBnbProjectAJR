@@ -13,10 +13,6 @@
 
 /* Basic */
 
-@-ms-viewport {
-  width: device-width;
-}
-
 @media screen and (max-width: 480px) {
 
   html, body {
@@ -29,7 +25,6 @@ html {
   box-sizing: border-box;
 }
 
-
 ol, ul {
 	list-style: none;
 }
@@ -38,19 +33,25 @@ blockquote, q {
 	quotes: none;
 }
 
+.link {
+  text-decoration: none;
+  color: #585858;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 16pt;
+  font-weight: 300;
+  margin:10px;
+}
+
 
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
-
-
 mark {
 	background-color: transparent;
 	color: inherit;
 }
-
 
 /* Type */
 
@@ -156,7 +157,7 @@ h6 {
 
 @media screen and (max-width: 980px) {
 
-  h1 br, h2 br, h3 br, h4 br, h5 br, h6 br {
+  h1 , h2 , h3 , h4 , h5 , h6  {
     display: none;
   }
 
@@ -437,16 +438,6 @@ ul.actions.fit {
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
-		}
-
-		input[type="text"]:focus,
-		input[type="password"]:focus,
-		input[type="email"]:focus,
-		input[type="tel"]:focus,
-		select:focus,
-		textarea:focus {
-			// border-bottom-color: #f2849e;
-			// box-shadow: inset 0 -1px 0 0 #f2849e;
 		}
 
 	select {
@@ -737,20 +728,6 @@ ul.actions.fit {
 			width: 100%;
 		}
 
-		input[type="submit"]:hover,
-		input[type="reset"]:hover,
-		input[type="button"]:hover,
-		button:hover,
-
-
-		input[type="submit"]:active,
-		input[type="reset"]:active,
-		input[type="button"]:active,
-		button:active,
-		.button:active {
-			background-color: rgba(242, 132, 158, 0.1);
-		}
-
 		input[type="submit"].small,
 		input[type="reset"].small,
 		input[type="button"].small,
@@ -805,5 +782,3 @@ ul.actions.fit {
 			pointer-events: none;
 			opacity: 0.25;
 		}
-
-/* Header */

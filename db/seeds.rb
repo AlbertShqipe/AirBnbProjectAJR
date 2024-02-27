@@ -29,27 +29,27 @@ puts "Creating users..."
 puts "----------------------------------------------------------------"
 
 albert = User.create(
-  first_name: 'Albert',
-  last_name: 'Nikolli',
-  email: 'sarabanda.sarab@gmail.com',
-  password: 'azerty1234',
-  avatar: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Jiří_Kylián_2020.jpg'
+first_name: 'Albert',
+last_name: 'Nikolli',
+email: 'sarabanda.sarab@gmail.com',
+password: 'azerty1234',
+avatar: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Jiří_Kylián_2020.jpg'
 )
 
 julien = User.create(
-  first_name: 'Julien',
-  last_name: 'Marchand',
-  email: 'liverpool.liver@gmail.com',
-  password: 'azerty1234',
-  avatar: 'https://upload.wikimedia.org/wikipedia/commons/8/81/Jürgen_Klopp%2C_Liverpool_vs._Chelsea%2C_UEFA_Super_Cup_2019-08-14_04.jpg'
+first_name: 'Julien',
+last_name: 'Marchand',
+email: 'liverpool.liver@gmail.com',
+password: 'azerty1234',
+avatar: 'https://upload.wikimedia.org/wikipedia/commons/8/81/Jürgen_Klopp%2C_Liverpool_vs._Chelsea%2C_UEFA_Super_Cup_2019-08-14_04.jpg'
 )
 
 ricardo = User.create(
-  first_name: 'Ricardo',
-  last_name: 'Canas',
-  email: 'benfica.benfi@gmail.com',
-  password: 'azerty1234',
-  avatar: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Mourinho_in_Moscow.jpg'
+first_name: 'Ricardo',
+last_name: 'Canas',
+email: 'benfica.benfi@gmail.com',
+password: 'azerty1234',
+avatar: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Mourinho_in_Moscow.jpg'
 )
 
 puts "----------------------------------------------------------------"
