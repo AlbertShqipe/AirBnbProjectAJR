@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.user_id = @user_id
     @booking.total_price = @booking.calculate_total_price(@player.price_per_day)
     if @booking.save
-      redirect_to player_path(@player)
+      redirect_to player_booking_path(player_id: @booking.player.id, id: @booking.id)
     else
       render :new, status: :unprocessable_entity
     end
