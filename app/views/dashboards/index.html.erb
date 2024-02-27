@@ -1,11 +1,11 @@
 <%= link_to "Retour", :back, class: "btn" %>
-  <div class="dashboard-bar">
+  <div class="dashboard-bar mb-4">
     <h1>Bienvenue, <%= @current_user.first_name %> !</h1>
   </div>
 
 <div  data-controller="tabs" data-tabs-default-value="user">
 
-    <div class="btn-list">
+    <div class="btn-list mb-3">
       <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="user">Mes infos</button>
       <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="players">Mes joueurs</button>
       <button class="btn" data-tabs-target="btn" data-action="click->tabs#open" data-id="bookings">Mes Réservations</button>
