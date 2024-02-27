@@ -1,13 +1,12 @@
 <%= simple_form_for(player) do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, label: "Nom" %>
   <%= f.input :position %>
   <%= f.input :age %>
-  <%= f.input :address %>
-  <%= f.input :nationality %>
-  <%= f.input :height %>
-  <%= f.input :foot %>
+  <%= f.input :nationality, label: "Nationalité" %>
+  <%= f.input :height, label: "Taille" %>
+  <%= f.input :foot, label: "Pied" %>
   <%= f.input :club %>
-  <%= f.input :market_value %>
+  <%= f.input :market_value, label: "Valeur de marché" %>
   <%= f.input :photo, as: :file %>
-  <%= f.submit %>
+  <%= f.button :submit, f.object.persisted? ? 'Modifier' : 'Créer'  %>
 <% end %>

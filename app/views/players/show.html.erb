@@ -80,15 +80,6 @@
               <h6><%= @player.nationality %></h6>
             </div>
           </div>
-          <div class="infos-card">
-            <div class="icon">
-              <h1><i class="fa-solid fa-address-book"></i></h1>
-            </div>
-            <div class="text">
-              <h5>Adresse</h5>
-              <h6><%= @player.name %> réside ? <%= @player.address %></h6>
-            </div>
-          </div>
         </div>
         <div class="col-4">
           <div class="booking" data-controller="total-price-booking">
@@ -99,7 +90,7 @@
               <% if user_signed_in? %>
                 <%= render "bookings/form", booking: @booking %>
               <% else %>
-                <%= link_to "Sign in", new_user_session_path, class:"btn" %>
+                <%= link_to "Connexion", new_user_session_path, class:"btn" %>
               <% end %>
             </div>
           </div>
@@ -109,6 +100,6 @@
     </div>
 
   <p>
-    <%= link_to "Back", players_path, class:"button"%>
+    <%= link_to "Retour", :back, class:"button"%>
   </p>
 </div>
