@@ -10,15 +10,6 @@
       <%= submit_tag "GO !", name: "Position", class: "button mt-3" %>
     <% end %>
   </div>
-  <div class="row justify-content-between">
-    <div class="col-auto">
-      <% if user_signed_in? %>
-        <%= link_to "Ajouter un nouveau joueur", new_player_path, class: 'btn' %>
-      <% else %>
-        <% "" %>
-      <% end %>
-    </div>
-  </div>
 <section class="tiles">
   <% @players.each do |player| %>
   <article class="style1">
