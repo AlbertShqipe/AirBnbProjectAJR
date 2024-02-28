@@ -20,4 +20,8 @@ class Player < ApplicationRecord
       end
     end
   end
+
+  def self.sorted_by_price
+    all.order(price_per_day: :asc)
+  end
 end
