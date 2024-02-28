@@ -3,6 +3,13 @@ class PlayersController < ApplicationController
 
   def index
     params[:query].present? ? @players = Player.where("position ILIKE ?", "%#{params[:query]}%") : @players = Player.all
+    if params[:query].present?
+      # Filtre les joueurs par la position recherchée et les trie par prix
+      @players = Player.where("position ILIKE ?", "%#{params[:query]}%").order(price_per_day: :asc)
+    else
+      # Trie tous les joueurs par prix si aucune recherche par position n'est effectuée
+      @players = Player.all.order(price_per_day: :asc)
+    end
   end
 
   def show
